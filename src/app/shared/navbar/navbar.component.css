@@ -47,8 +47,27 @@
     color: var(--red);
   }
   .navbar .brand .brand-txt .brand-subtitle {
+    margin-top: -5px;
     font-size: 13px;
     color: #888;
+  }
+
+  .navbar .titleMobile .title{
+    font-size: 1rem;
+  }
+  .navbar .titleMobile .title span{
+    color: red;
+  }
+  .navbar .titleMobile .subtitle{
+    text-align: center;
+    margin-top: -10px;
+    font-size: 0.7rem;
+  }
+
+  .navbar-toggler{
+    padding: 5px 5px;
+    font-size: 15px;
+    background-color: #888;
   }
 
   /* options whit js */
@@ -60,7 +79,28 @@
   }
   .small {
     margin-top: 5px;
+  
     height: 8vh;
   }
 
+  .small a{
+    font-size: 1rem !important;
+  }
 
+
+@media (max-width:991.10px) {
+  .navbar{
+    /* height: 8vh; */
+    position: absolute;
+    width: 100%;
+    background-color: rgba(239, 239, 239, 0.411);
+  }
+  .brand-img{
+    display: none;
+  }
+}
+@media (min-width:991.10px) {
+  .navbar .titleMobile{
+    display: none;
+  }
+}
