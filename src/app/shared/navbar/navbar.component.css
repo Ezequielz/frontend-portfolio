@@ -52,11 +52,14 @@
     color: #888;
   }
 
+  .navbar .titleMobile{
+    color: var(--light);
+  }
   .navbar .titleMobile .title{
     font-size: 1rem;
   }
   .navbar .titleMobile .title span{
-    color: red;
+    color: var(--gray-dark);
   }
   .navbar .titleMobile .subtitle{
     text-align: center;
@@ -86,6 +89,8 @@
   .small a{
     font-size: 1rem !important;
   }
+
+
 
 
 @media (max-width:991.10px) {
