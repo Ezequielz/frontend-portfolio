@@ -1,0 +1,9 @@
+.skills .card-body img {
+    width: 100%;
+}
+
+.skills .card-body .img-content{
+    margin: auto;
+    padding: 15px;
+}
+
