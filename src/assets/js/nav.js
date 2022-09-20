@@ -7,6 +7,5 @@ window.addEventListener('scroll',function(){
     img.classList.toggle("off", window.scrollY>550)
     txt.classList.toggle("on", window.scrollY>550)
     nav.classList.toggle("small", window.scrollY>550)
-
-   
 })
+

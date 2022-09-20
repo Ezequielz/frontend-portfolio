@@ -1,4 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectsService } from '../../services/projects.service'
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faGlobe } from '@fortawesome/free-solid-svg-icons';
+
+interface Iprojects {
+  id: string
+  title: string
+  info: string
+  imagen: string
+  url: string
+  github: string
+  tecnologias: string
+}
 
 @Component({
   selector: 'app-projects',
@@ -6,10 +19,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
+  faGithub=faGithub
+  faGlobe=faGlobe
 
-  constructor() { }
 
+  constructor( public projectsService : ProjectsService ) {
+console.log(projectsService)
+    
+      }
+      
+  
   ngOnInit(): void {
   }
+
 
 }

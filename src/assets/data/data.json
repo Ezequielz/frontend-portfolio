@@ -1,0 +1,150 @@
+
+
+[
+    {
+        "id":"1",
+        "title": "EcheStore",
+        "info": "App de una store propia de ventas de skins de CS:GO, un videojuego de Valve, influenciada en la pagina Steam, consumiendo sus apis para el detalle de los productos, creada con stack MERN",
+        "imagen":"/assets/imgs/projects/echestore.jpg",
+        "height": "300",
+        "width":"230",
+        "url": "https://echestore.com.ar",
+        "github": "https://github.com/Ezequielz/front-EcheStore",
+        "tecnologias": ["react","node","mongo","express"]
+    },
+    {
+        "id":"2",
+        "title": "Teslo-Shop",
+        "info": "App creada en NEXT.js, typescript y MongoDB, MaterialUI y Next Auth",
+        "imagen":"/assets/imgs/projects/Teslo.jpg",
+        "height": "300",
+        "width":"230",
+        "url": "https://teslo-shop-zapata.herokuapp.com/",
+        "github": "https://github.com/Ezequielz/next-teslo",
+        "tecnologias": ["next","ts"]
+    },
+    {
+        "id":"3",
+        "title": "Pokemons",
+        "info": "App desarrollada en Next.js, SSR que muestra un listado de pokemons de la api de https://pokeapi.co/, integrando NextUI, axios, canvas confetti, Open Graph Meta Tags, deployado en Vercel",
+        "imagen":"/assets/imgs/projects/pokemon.png",
+        "height": "300",
+        "width":"230",
+        "url": "https://pokemons-next-zapata.vercel.app/",
+        "github": "https://github.com/Ezequielz/Pokemon-next",
+        "tecnologias": ["next"]
+    },
+    {
+        "id":"4",
+        "title": "IP-DATA",
+        "info": "App que devuelve los datos de una IP, consumiendo una api de geolocalizacion, desarrollada en TypeScript",
+        "imagen":"/assets/imgs/projects/ip.jpg",
+        "height": "300",
+        "width":"230",
+        "url": "https://ipdata-zapata.netlify.app/",
+        "github": "https://github.com/Ezequielz/IP-DATA",
+        "tecnologias": ["react"]
+    },
+    {
+        "id":"5",
+        "title": "planets Star Wars",
+        "info": "app con React integrándola con Redux, usando el API REST de Star Wars. Lista todos los planetas en una lista con un paginado de a 10 planetas, con la funcionalidad de agregar y/o quitar planetas favoritos ",
+        "imagen":"/assets/imgs/projects/starwars.jpg",
+        "height": "300",
+        "width":"230",
+        "url": "https://starwars-planets-zapata.netlify.app/",
+        "github": "https://github.com/Ezequielz/Star-Wars-Challenge",
+        "tecnologias": ["js"]
+    },
+    {
+        "id":"6",
+        "title": "calendario",
+        "info": " calendario usando el stack MERN (Mongo, Express, React , Node), con sistema de login y proteccion de rutas aplicando tokens",
+        "imagen":"/assets/imgs/projects/calendar.jpg",
+        "height": "300",
+        "width":"230",
+        "url": "https://calendarapp-zapata.netlify.app/",
+        "github": "https://github.com/Ezequielz/mern-calendar-frontend",
+        "tecnologias": ["js"]
+    },
+    {
+        "id":"7",
+        "title": "Cotizador de seguros",
+        "info": "Este proyecto tiene el fin de cotizar el seguro al usuario segun el modelo del auto, marca(región) y plan que quiera elegir. Varian los precios tomando en cuenta todos los puntos anteriores. ",
+        "imagen":"/assets/imgs/projects/seguro.jpg",
+        "height": "300",
+        "width":"230",
+        "url": "https://cotizadorseguros-zapata.netlify.app/",
+        "github": "https://github.com/Ezequielz/cotizador-React",
+        "tecnologias": ["js"]
+    },
+    {
+        "id":"8",
+        "title": "Clima",
+        "info": "Este proyecto tiene el fin de obtener el clima de una ciudad a traves de una API, donde al apretar el boton obtener clima nos muestra la temperatura actual con su minima y maxima de ese dia de la ciudad elegida representada en grados celcius",
+        "imagen":"/assets/imgs/projects/clima.jpg",
+        "height": "300",
+        "width":"230",
+        "url": "https://clima-zapata.netlify.app/",
+        "github": "https://github.com/Ezequielz/clima-React",
+        "tecnologias": ["js"]
+    },
+    {
+        "id":"9",
+        "title": "Buscador de Gifs",
+        "info": "Una pequeña app hecha en React con Hooks para buscar y mostrar gif animados",
+        "imagen":"/assets/imgs/projects/gif.jpg",
+        "height": "300",
+        "width":"230",
+        "url": "https://ezequielz.github.io/react-gifExpertApp/",
+        "github": "https://github.com/Ezequielz/react-gifExpertApp",
+        "tecnologias": ["js"]
+    },
+    {
+        "id":"10",
+        "title": "Busqueda de heroes",
+        "info": "es una app de practica de uso de hooks, ruteo y proteccion de rutas testing busca heroes segun publisher y brinda la info. simula un login con proteccion de rutas.",
+        "imagen":"/assets/imgs/projects/heroes.jpg",
+        "height": "300",
+        "width":"230",
+        "url": "https://heroesapp-zapata.netlify.app/",
+        "github": "https://github.com/Ezequielz/HeroesApp",
+        "tecnologias": ["js"]
+    },
+    {
+        "id":"11",
+        "title": "Frases de Breaking Bad",
+        "info": "Este proyecto tiene el fin de obtener frases de breaking bad a traves de una API, donde al apretar el boton de obtener frase hace la consulta en la api y me trae otra frase con su autor",
+        "imagen":"/assets/imgs/projects/BreakingBad.jpg",
+        "height": "300",
+        "width":"230",
+        "url": "https://frasesbb-zapata.netlify.app/",
+        "github": "https://github.com/Ezequielz/FrasesBB-React",
+        "tecnologias": ["react"]
+    },
+    {
+        "id":"12",
+        "title": "Turnos veterinaria",
+        "info": "Este proyecto tiene el fin de organizar los turnos en una veterinaria",
+        "imagen":"/assets/imgs/projects/turnos.jpg",
+        "height": "300",
+        "width":"230",
+        "url": "https://turnos-zapata.netlify.app/",
+        "github": "https://github.com/Ezequielz/Turnos-React",
+        "tecnologias": ["js"]
+    },
+    {
+        "id":"13",
+        "title": "Presupuesto semanal",
+        "info": "Este proyecto tiene el fin de calcular en base a un monto inicial de presupuesto, los gastos que una persona tiene y ver el restante que le queda. marcando con colores diferentes segun el porcentaje de dinero disponible",
+        "imagen":"/assets/imgs/projects/presupuesto.jpg",
+        "height": "300",
+        "width":"230",
+        "url": "https://presupuesto-zapata.netlify.app/",
+        "github": "https://github.com/Ezequielz/Presupuesto-React",
+        "tecnologias": ["js"]
+    }
+
+
+]
+
