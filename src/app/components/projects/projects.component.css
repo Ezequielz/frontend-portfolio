@@ -15,7 +15,7 @@
   transition: 0.3s;
 }
  .intro {
-  background: rgb(27, 27, 27, .5);
+  background: rgb(27, 27, 27, .7);
   bottom: 0px;
   /* box-sizing: border-box; */
   color: white;
@@ -49,6 +49,7 @@
 }
  .card:hover img{
   transform: scale(1.1) rotate(-3deg);
+
 }
 .info{
   height: 160px;

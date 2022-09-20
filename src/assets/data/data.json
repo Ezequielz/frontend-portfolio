@@ -10,7 +10,7 @@
         "width":"230",
         "url": "https://echestore.com.ar",
         "github": "https://github.com/Ezequielz/front-EcheStore",
-        "tecnologias": ["react","node","mongo","express"]
+        "tecnologias": ["react","node","mongo","express","js"]
     },
     {
         "id":"2",
@@ -21,7 +21,7 @@
         "width":"230",
         "url": "https://teslo-shop-zapata.herokuapp.com/",
         "github": "https://github.com/Ezequielz/next-teslo",
-        "tecnologias": ["next","ts"]
+        "tecnologias": ["next","ts","mongo","material"]
     },
     {
         "id":"3",
@@ -32,7 +32,7 @@
         "width":"230",
         "url": "https://pokemons-next-zapata.vercel.app/",
         "github": "https://github.com/Ezequielz/Pokemon-next",
-        "tecnologias": ["next"]
+        "tecnologias": ["next","ts"]
     },
     {
         "id":"4",
@@ -43,7 +43,7 @@
         "width":"230",
         "url": "https://ipdata-zapata.netlify.app/",
         "github": "https://github.com/Ezequielz/IP-DATA",
-        "tecnologias": ["react"]
+        "tecnologias": ["react","ts"]
     },
     {
         "id":"5",
