@@ -13,7 +13,7 @@
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --primary: #F85C70;
+  --primary: #dc3545;
   --secondary: #6c757d;
   --success: #A3C14A;
   --info: #47D8E0;
@@ -104,3 +104,60 @@ p {
 .icon-xl {
   font-size: 65px;
 }
+
+.text-primary{
+  color: var(--red) !important;
+}
+.text-lowercase {
+  text-transform: lowercase !important;
+}
+
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+
+.display-1 {
+  font-size: calc(40px + (120 - 40) * ((90vw - 300px) / (1300 - 300)));
+  font-weight: 1000;
+  /* font-weight: 800;
+  line-height: 1.2; */
+}
+.display-2 {
+  font-size: calc(40px + (120 - 40) * ((40vw - 500px) / (1700 - 300)));
+  font-weight: 800;
+  /* font-weight: 800;
+  line-height: 1.2; */
+}
+
+.title-section,.subtitle-section{
+  font-family: 'Roboto', sans-serif;
+}
+
+
+
+/* @media (max-width: 576px) {
+  .title-section {
+    font-size: 2.5rem;
+  }
+  .subtitle-section{
+    font-size: 1rem;
+  }
+}
+@media (min-width: 577px) {
+  .title-section {
+    font-size: 5rem;
+  }
+  .subtitle-section{
+    font-size: 2rem;
+  }
+}
+@media (min-width: 769px) {
+  .title-section {
+    font-size: 8rem;
+  }
+
+} */

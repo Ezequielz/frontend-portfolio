@@ -40,7 +40,7 @@
 }
 
  .card:hover .intro{
-  background: rgb(27, 27, 27, .9);
+  background: rgba(27, 27, 27, 0.902);
   height: 220px;
 }
  .card:hover p{
