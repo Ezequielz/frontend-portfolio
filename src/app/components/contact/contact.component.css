@@ -1,0 +1,24 @@
+#contacto .map-container ,#contacto .form{
+    padding: 30px;
+    text-align: center;
+}
+
+.map-form{
+    margin: auto;
+}
+
+.inp{
+    margin: 10px;
+    padding: 5px;
+}
+
+.social-link{
+    color: var(--red);
+    text-decoration: none;
+    margin: 10px;
+    font-size: 2rem;
+}
+
+.social-link:hover{
+    color: red;
+}
