@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faShop, faIdCard, faPager } from '@fortawesome/free-solid-svg-icons';
+import { faShop, faIdCard, faPager, faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 import { faGithub,faFacebookF, faWhatsapp, faLinkedinIn} from '@fortawesome/free-brands-svg-icons';
 
@@ -12,6 +12,8 @@ export class AboutComponent implements OnInit {
   faShop=faShop
   faPager=faPager
   faIdCard=faIdCard
+  faPenToSquare=faPenToSquare
+  faTrashCan=faTrashCan
 
   constructor() { }
 

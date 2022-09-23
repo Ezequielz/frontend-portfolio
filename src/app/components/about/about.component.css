@@ -3,11 +3,13 @@
     border-bottom: 1px solid #dee2e6;
     
   }
-  
+
   .about-section .about-card {
+    position: relative;
     padding: 10px 30px ;
     border-right: 1px solid #dee2e6;
   }
+
   
   .about-section .about-card:last-child {
     border-right: none;

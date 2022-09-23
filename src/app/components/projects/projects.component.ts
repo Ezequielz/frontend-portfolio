@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectsService } from '../../services/projects.service'
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 interface Iprojects {
   id: string
@@ -21,6 +22,8 @@ interface Iprojects {
 export class ProjectsComponent implements OnInit {
   faGithub=faGithub
   faGlobe=faGlobe
+  faPenToSquare=faPenToSquare
+  faTrashCan=faTrashCan
 
 
   constructor( public projectsService : ProjectsService ) {

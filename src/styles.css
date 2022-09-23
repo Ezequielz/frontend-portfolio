@@ -138,26 +138,21 @@ p {
 }
 
 
+.admin-icon-container{
 
-/* @media (max-width: 576px) {
-  .title-section {
-    font-size: 2.5rem;
-  }
-  .subtitle-section{
-    font-size: 1rem;
-  }
+  position: absolute;
+  right: 20px;
 }
-@media (min-width: 577px) {
-  .title-section {
-    font-size: 5rem;
-  }
-  .subtitle-section{
-    font-size: 2rem;
-  }
+.admin-icon{
+  padding: 3px;
+  cursor: pointer;
 }
-@media (min-width: 769px) {
-  .title-section {
-    font-size: 8rem;
-  }
 
-} */
+.edit-icon{
+  color: var(--blue);
+}
+
+.delete-icon{
+  color: var(--red);
+
+}

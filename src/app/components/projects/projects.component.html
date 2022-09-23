@@ -14,6 +14,10 @@
                     <img [src]="project.imagen" [alt]="project.title" >
                     <div class="intro">
                         <div class="info">
+                            <div class="admin-icon-container">
+                                <fa-icon [icon]="faPenToSquare" class="admin-icon edit-icon"></fa-icon>
+                                <fa-icon [icon]="faTrashCan" class="admin-icon delete-icon"></fa-icon>
+                            </div>
                             <h2>{{project.title}}</h2>
                             <p>{{ project.info}}</p>
 
