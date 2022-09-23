@@ -12,12 +12,13 @@
             <div *ngFor="let project of projectsService.productos" class="col-12 col-sm-6 col-md-4 col-lg-3" >
                 <div class="card">
                     <img [src]="project.imagen" [alt]="project.title" >
+                    <div class="admin-icon-container mt-2">
+                        <fa-icon [icon]="faPenToSquare" class="admin-icon edit-icon"></fa-icon>
+                        <fa-icon [icon]="faTrashCan" class="admin-icon delete-icon"></fa-icon>
+                    </div>
                     <div class="intro">
                         <div class="info">
-                            <div class="admin-icon-container">
-                                <fa-icon [icon]="faPenToSquare" class="admin-icon edit-icon"></fa-icon>
-                                <fa-icon [icon]="faTrashCan" class="admin-icon delete-icon"></fa-icon>
-                            </div>
+                        
                             <h2>{{project.title}}</h2>
                             <p>{{ project.info}}</p>
 
