@@ -1,0 +1,27 @@
+.login-container{
+    color: white;
+    /* margin-top: -55px; */
+    height: 100vh;
+    background: radial-gradient(rgba(24, 26, 33, 0.5) 0%, #181a21 100%)  , url(https://emprenderte.co/wp-content/uploads/2022/07/Programacion-de-computadoras-y-sus-aplicaciones-una-guia-basica.jpgkeepProtocol.jpeg) no-repeat , #121212;;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.login{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+}
+.env {
+    width: 100%;
+}
+
+.back{
+    position: absolute;
+    top: 60px;
+    left: 60px;
+}
