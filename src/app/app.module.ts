@@ -17,6 +17,7 @@ import { LoginComponent } from './components/login/login.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import { interceptorProvider } from './services/interceptor-service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,9 @@ import { AppRoutingModule } from './app-routing.module';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    interceptorProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
