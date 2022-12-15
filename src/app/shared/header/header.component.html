@@ -7,8 +7,17 @@
 
             <button routerLink="login"
                     class="btn btn-danger btn-login"
+                    *ngIf="!isLogged"
             >
                 Login
+            </button>
+
+            <button 
+                    (click)="onLogOut()"
+                    class="btn btn-danger btn-login"
+                    *ngIf="isLogged"
+            >
+                    Cerrar Session
             </button>
 
         <!-- <ul class="social-icons pt-5">

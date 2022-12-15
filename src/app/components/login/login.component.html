@@ -1,58 +1,39 @@
-
 <div class="login-container">
     <div class="container ">
 
-        <button routerLink=""
-                class="btn btn-danger back"
-        >Volver al Portfolio
+        <button routerLink="" class="btn btn-danger back">Volver al Portfolio
         </button>
 
         <div class="login">
 
-            <form [formGroup]="form" class="m-5" (ngSubmit)="onStartLogin($event)">
+            <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
                 <h1 class="">Iniciar Sesión</h1>
 
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                    <label for="nombreUsuario" class="form-label">Usuario</label>
                     <input 
                         type="email" 
-                        formControlName="email" 
+                        name="nombreUsuario" 
                         class="form-control" 
-                        id="exampleInputEmail1" 
+                        id="nombreUsuario"
                         aria-describedby="emailHelp"
-                        [ngClass]="{'is-invalid': Email?.errors && Email?.touched , 'is-valid': !Email?.errors && Email?.touched}"
-                    >
-                        <div *ngIf="Email?.errors && Email?.touched">
-                            <span *ngIf="Email?.hasError('required')" class="text-danger">
-                                El email es obligatorio.
-                            </span>
-                            <span *ngIf="Email?.hasError('email')" class="text-danger">
-                                El formato del email debe ser válido.
-                            </span>
-                        </div>
+                        [(ngModel)]="nombreUsuario" required
+                        
+                        >
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                    <label for="password" class="form-label">Contraseña</label>
                     <input 
                         type="password" 
-                        formControlName="password"
                         class="form-control" 
-                        id="exampleInputPassword1"
-                        [ngClass]="{'is-invalid': Password?.errors && Password?.touched , 'is-valid': !Password?.errors && Password?.touched}"
+                        name="password"
+                        id="password"
+                        [(ngModel)]="password" required
                     >
-            
-                    <div *ngIf="Password?.errors && Password?.touched">
-                        <span *ngIf="Password?.hasError('required')" class="text-danger">
-                            Debe ingresar una contraseña.
-                        </span>
-                        <p *ngIf="Password?.errors && !Password?.hasError('required') " class="text-danger">
-                            La contraseña debe tener al menos 6 caracteres.
-                            
-                        </p>
-                    </div>
+
                 </div>
-            
-                <button type="submit" class="btn btn-danger env" >Enviar</button>
+
+                <button type="submit" class="btn btn-danger env">Enviar</button>
             </form>
         </div>
     </div>

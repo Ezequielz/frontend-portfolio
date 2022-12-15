@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { faCloudArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faGithub,faFacebookF, faWhatsapp, faLinkedinIn} from '@fortawesome/free-brands-svg-icons';
+import { TokenService } from '../../services/token.service';
 
 @Component({
   selector: 'app-header',
@@ -15,10 +16,23 @@ export class HeaderComponent implements OnInit {
   faGithub=faGithub
   faWhatsapp=faWhatsapp
   faLinkedin=faLinkedinIn
+
+  isLogged = false;
+
   
-  constructor() { }
+  constructor( private tokenService: TokenService) { }
 
   ngOnInit(): void {
+    if( this.tokenService.getToken() ){
+      this.isLogged = true;
+    }else{
+      this.isLogged = false;
+    }
+  }
+
+  onLogOut():void{
+    this.tokenService.logout();
+    window.location.reload();
   }
 
 }
