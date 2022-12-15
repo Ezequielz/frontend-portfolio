@@ -1,30 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { NuevoUsuario } from '../model/nuevo-usuario';
+import { Observable } from 'rxjs';
+import { LoginUsuario } from '../model/login-usuario';
+import { JwtDto } from '../model/jwt-dto';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  url="http://localhost:4200/login";  //TODO modificar
+  authURL="http://localhost:8080/auth/";  
 
-  currentUserSubject: BehaviorSubject<any>;
+  constructor( private httpClient: HttpClient ) {}
 
-  constructor( private http: HttpClient ) {
-
-    console.log('El servicio de authenticacion esta corriendo')
-    this.currentUserSubject = new BehaviorSubject<any>( JSON.parse( sessionStorage.getItem('currentUser') || '{}' ) )
+  public nuevo( nuevoUsuario: NuevoUsuario ): Observable<any>{
+    return this.httpClient.post<any>( this.authURL + 'nuevo', nuevoUsuario);
    }
 
-   login( credentials:any ):Observable<any>{
-    return this.http.post( this.url, credentials ).pipe( map( data => {
-
-      sessionStorage.setItem( 'currentUser', JSON.stringify(data) );
-
-
-      return data
-    }));
+   public login(loginUsuario: LoginUsuario): Observable<JwtDto>{
+    return this.httpClient.post<JwtDto>( this.authURL + 'login', loginUsuario )
    }
 }
