@@ -85,3 +85,10 @@ a {
 a:hover{
   color: var(--red);
 }
+
+.add-btn{
+  position: absolute;
+  right: 0;
+  padding: 1px;
+
+}

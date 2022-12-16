@@ -1,18 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectsService } from '../../services/projects.service'
+import { ProjectsService } from '../../services/projects.service';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
-import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faTrashCan, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { TokenService } from '../../services/token.service';
+import { Project } from 'src/app/model/project';
 
-interface Iprojects {
-  id: string
-  title: string
-  info: string
-  imagen: string
-  url: string
-  github: string
-  tecnologias: string
-}
+
 
 @Component({
   selector: 'app-projects',
@@ -20,20 +14,48 @@ interface Iprojects {
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
+
   faGithub=faGithub
   faGlobe=faGlobe
   faPenToSquare=faPenToSquare
   faTrashCan=faTrashCan
+  faPlus=faPlus
+
+  projects: Project[] = [];
 
 
-  constructor( public projectsService : ProjectsService ) {
-console.log(projectsService)
-    
-      }
+  constructor( private projectsService : ProjectsService, private tokenService: TokenService ) {}
       
+  isLogged = false;
   
   ngOnInit(): void {
+    this.loadProjects();
+    if(this.tokenService.getToken()){
+      this.isLogged = true
+    }else{
+      this.isLogged = false
+    }
+  }
+
+  loadProjects():void{
+    this.projectsService.lista().subscribe(
+      data => { this.projects = data }
+    )
+  }
+
+  delete(id?: number){
+    if(id != undefined){
+     
+      this.projectsService.delete(id).subscribe(
+        data => {
+          this.loadProjects();
+        }, err => {
+          alert("No se pudo borrar la experiencia");
+        }
+      )
+    }
   }
 
 
 }
+

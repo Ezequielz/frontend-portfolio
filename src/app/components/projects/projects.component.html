@@ -3,39 +3,55 @@
         <div class="position-relative d-flex align-items-center justify-content-center col-12">
             <h2 class="display-1 text-uppercase text-white title-section" style="-webkit-text-stroke: 1px #dee2e6;">Proyectos</h2>
             <h2 class="display-2  position-absolute text-uppercase text-primary subtitle-section">Mis Proyectos</h2>
+            <button class="btn btn-danger add-btn" type="button" routerLink="/newproject" *ngIf="isLogged">
+                <fa-icon [icon]="faPlus" class="admin-icon "></fa-icon>
+            </button>
         </div>
         <!-- <h1 class="mb-5 mt-5"><span class="text-danger">Mis</span> Proyectos</h1> -->
         <div class="portfolio">
 
 
         <div class="project-container row">
-            <div *ngFor="let project of projectsService.productos" class="col-12 col-sm-6 col-md-4 col-lg-3" >
+            <div *ngFor="let project of projects" class="col-12 col-sm-6 col-md-4 col-lg-3" >
                 <div class="card">
-                    <img [src]="project.imagen" [alt]="project.title" >
-                    <div class="admin-icon-container mt-2">
-                        <fa-icon [icon]="faPenToSquare" class="admin-icon edit-icon"></fa-icon>
-                        <fa-icon [icon]="faTrashCan" class="admin-icon delete-icon"></fa-icon>
+                    <img [src]="project.img" [alt]="project.title" >
+                    <div class="admin-icon-container mt-2" *ngIf="isLogged">
+                  
+                        <fa-icon 
+                            routerLink="/editproject/{{ project.id }}" 
+                            [icon]="faPenToSquare" 
+                            class="admin-icon edit-icon"
+                        >
+                        </fa-icon>
+
+                        <fa-icon 
+                            (click)="delete(project.id)"
+                            [icon]="faTrashCan" 
+                            class="admin-icon delete-icon"
+                        >
+                        </fa-icon>
+
                     </div>
                     <div class="intro">
                         <div class="info">
                         
                             <h2>{{project.title}}</h2>
-                            <p>{{ project.info}}</p>
+                            <p>{{ project.descripcion}}</p>
 
                         </div>
                         <div class="icons-container">
           
-                            <div class="img-container col-8" >
+                            <!-- <div class="img-container col-8" >
                                
                                 <img *ngFor="let skill of project.tecnologias" src="assets/imgs/skills/{{skill}}.png" alt="">
-                            </div>
+                            </div> -->
                             <div class="icons col-4">
                                 <div class="url network">
-                                   <a href={{project.url}} target="_blank"><fa-icon [icon]="faGlobe"></fa-icon></a>
+                                   <a href={{project.weburl}} target="_blank"><fa-icon [icon]="faGlobe"></fa-icon></a>
                                 </div>
                                 <div class="url github">
                                     
-                                    <a href={{project.github}} target="_blank"><fa-icon [icon]="faGithub"></fa-icon></a>
+                                    <a href={{project.giturl}} target="_blank"><fa-icon [icon]="faGithub"></fa-icon></a>
                                 </div>
                             </div>
                         </div>

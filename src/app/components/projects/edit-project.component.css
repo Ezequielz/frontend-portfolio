@@ -1,0 +1,30 @@
+.add-project-container{
+    height: 100vh;
+    background: radial-gradient(rgba(24, 26, 33, 0.5) 0%, #181a21 100%)  , url(https://kinsta.com/wp-content/uploads/2021/11/what-is-a-full-stack-developer.png) no-repeat , #121212;;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: white;
+}
+.project{
+    padding: 50px;
+}
+
+.project-box{
+justify-content: center;
+}
+
+textarea
+{
+  width:100%;
+}
+
+.title-project{
+    text-align: center;
+}
+.buttons-container{
+    display: flex;
+    justify-content: space-between;
+}

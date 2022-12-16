@@ -18,6 +18,8 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { interceptorProvider } from './services/interceptor-service';
+import { NewProjectComponent } from './components/projects/new-project.component';
+import { EditProjectComponent } from './components/projects/edit-project.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { interceptorProvider } from './services/interceptor-service';
     ProjectsComponent,
     ContactComponent,
     LoginComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    NewProjectComponent,
+    EditProjectComponent
   ],
   imports: [
     BrowserModule,

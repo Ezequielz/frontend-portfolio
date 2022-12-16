@@ -147,12 +147,22 @@ p {
   padding: 3px;
   cursor: pointer;
 }
+.admin-icon:hover{
+  font-size: 1.4rem;
+}
 
 .edit-icon{
   color: var(--blue);
 }
+.edit-icon:hover{
+  color:#1960d1;
+}
 
 .delete-icon{
   color: var(--red);
+
+}
+.delete-icon:hover{
+  color: #fc1837;
 
 }

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IProjects } from '../interfaces/project';
+import { Observable } from 'rxjs';
+import { Project } from '../model/project';
 
 
 @Injectable({
@@ -8,18 +10,38 @@ import { IProjects } from '../interfaces/project';
 })
 export class ProjectsService {
 
-  productos: IProjects[] = []
-  cargando = true
+  projectURL = 'http://localhost:8080/project/';
+
+  productos: IProjects[] = [];
+  cargando = true;
 
 
-  constructor( private http: HttpClient ) {
+  constructor( private httpClient: HttpClient ) {
 
-    this.http.get('assets/data/data.json')
-        .subscribe( (resp : any) => {
-          this.productos = resp
-          this.cargando = false
-        });
+    // this.http.get('assets/data/data.json')
+    //     .subscribe( (resp : any) => {
+    //       this.productos = resp
+    //       this.cargando = false
+    //     });
   }
 
+  public lista(): Observable<Project[]>{
+      return this.httpClient.get<Project[]>(this.projectURL + 'lista');
+  }
 
+  public detail(id: number): Observable<Project>{
+    return this.httpClient.get<Project>(this.projectURL + `detail/${ id }`);
+  }
+
+  public save(project: Project): Observable<any>{
+    return this.httpClient.post<any>(this.projectURL + `create`, project);
+  }
+
+  public update(id:number, project: Project ): Observable<any>{
+    return this.httpClient.put<any>(this.projectURL + `edit/${id}`, project);
+  }
+
+  public delete(id: number): Observable<any>{
+    return this.httpClient.delete<any>(this.projectURL + `delete/${id}`);
+  }
 }
