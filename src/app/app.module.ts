@@ -20,6 +20,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { interceptorProvider } from './services/interceptor-service';
 import { NewProjectComponent } from './components/projects/new-project.component';
 import { EditProjectComponent } from './components/projects/edit-project.component';
+import { EditAboutComponent } from './components/about/edit-about.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,8 @@ import { EditProjectComponent } from './components/projects/edit-project.compone
     LoginComponent,
     PortfolioComponent,
     NewProjectComponent,
-    EditProjectComponent
+    EditProjectComponent,
+    EditAboutComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,9 @@ import { EditProjectComponent } from './components/projects/edit-project.compone
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage())
   ],
   providers: [
     interceptorProvider
