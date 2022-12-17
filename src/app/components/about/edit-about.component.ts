@@ -22,6 +22,7 @@ export class EditAboutComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.activatedRouter.snapshot.params['id'];
+    this.imgService.cleanUrl();
     this.personaService.detail(id).subscribe( data => {
       this.persona = data;
     }, err =>{
