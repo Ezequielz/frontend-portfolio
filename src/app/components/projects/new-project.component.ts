@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Project } from 'src/app/model/project';
+import { ImageService } from 'src/app/services/image.service';
 import { ProjectsService } from '../../services/projects.service';
 
 @Component({
@@ -16,19 +17,35 @@ export class NewProjectComponent implements OnInit {
   giturl: string = '';
   weburl: string = '';
 
-  constructor( private projectsService: ProjectsService, private router: Router ) { }
+  constructor( private projectsService: ProjectsService,
+    private activatedRouter: ActivatedRoute,
+     private router: Router,
+     public imgService: ImageService
+      ) { }
 
   ngOnInit(): void {
   }
 
   onCreate(): void{
+
     const project = new Project(this.title, this.descripcion, this.img, this.giturl, this.weburl);
+
+    project.img = this.imgService.url
+
+    
     this.projectsService.save( project ).subscribe( data =>{
       alert("projecto añadido");
+      this.imgService.cleanUrl();
       this.router.navigate(['']);
     }, err =>{
       alert("fallo");
       this.router.navigate(['']);
     });
+  }
+
+  uploadImage($event: any){
+   
+    const name = "project_" 
+    this.imgService.uploadImage( $event, name  );
   }
 }

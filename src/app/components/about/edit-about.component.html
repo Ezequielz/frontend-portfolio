@@ -4,6 +4,14 @@
 
         <div class="row project-box">
             <form (ngSubmit)="onUpdate()" novalidate #f="ngForm" class="col-12 col-sm-8 col-lg-5">
+                <div class="imagen" *ngIf="imgService.url">
+                    <img [src]="imgService.url" alt="" width="200px">
+
+                </div>
+                <div class="imagen" *ngIf="!imgService.url">
+                    <img [src]="persona.img" alt="" width="200px">
+
+                </div>
                 <div class="form-group">
     
                     <label for="nombre">Nombre</label>
@@ -39,23 +47,15 @@
                         Volver
                     </button>
 
-                    <button *ngIf="imgService.url"
+                    <button 
                         class="btn btn-danger mt-3 align-items-center" 
                         
                         >
                         Actualizar
                     </button>
-                    <button *ngIf="!imgService.url"
-                        class="btn btn-danger mt-3 align-items-center" 
-                        disabled
-                        >
-                        Actualizar
-                    </button>
+    
                 </div>
-                <div class="imagen">
-                    <img [src]="imgService.url" alt="" width="200px">
-
-                </div>
+   
             </form>        
         </div>
     </div>
