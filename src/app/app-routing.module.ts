@@ -6,6 +6,8 @@ import { LoginComponent } from './components/login/login.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { EditProjectComponent } from './components/projects/edit-project.component';
 import { NewProjectComponent } from './components/projects/new-project.component';
+import { EditSkillComponent } from './components/skills/edit-skill.component';
+import { NewSkillComponent } from './components/skills/new-skill.component';
 
 const routes: Routes = [
     {
@@ -24,6 +26,14 @@ const routes: Routes = [
     {
         path: 'editproject/:id',
         component: EditProjectComponent
+    },
+    {
+        path: 'newskill',
+        component: NewSkillComponent
+    },
+    {
+        path: 'editskill/:id',
+        component: EditSkillComponent
     },
     {
         path: 'editabout/:id',

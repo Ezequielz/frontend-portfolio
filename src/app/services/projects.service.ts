@@ -12,17 +12,8 @@ export class ProjectsService {
 
   projectURL = 'http://localhost:8080/project/';
 
-  productos: IProjects[] = [];
-  cargando = true;
-
-
   constructor( private httpClient: HttpClient ) {
 
-    // this.http.get('assets/data/data.json')
-    //     .subscribe( (resp : any) => {
-    //       this.productos = resp
-    //       this.cargando = false
-    //     });
   }
 
   public lista(): Observable<Project[]>{

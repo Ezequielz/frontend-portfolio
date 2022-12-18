@@ -24,6 +24,9 @@ import { EditAboutComponent } from './components/about/edit-about.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { EditSkillComponent } from './components/skills/edit-skill.component';
+import { NewSkillComponent } from './components/skills/new-skill.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,9 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     PortfolioComponent,
     NewProjectComponent,
     EditProjectComponent,
-    EditAboutComponent
+    EditAboutComponent,
+    EditSkillComponent,
+    NewSkillComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +53,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    NgCircleProgressModule.forRoot({}),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideStorage(() => getStorage())
   ],

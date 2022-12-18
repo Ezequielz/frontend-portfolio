@@ -1,0 +1,61 @@
+<div class=" add-skill-container">
+    <div class="container skill">
+        <h1 class="title-skill">Agregar Skill</h1>
+
+        <div class="row skill-box">
+            <form (ngSubmit)="onCreate()" novalidate #f="ngForm" class="col-12 col-sm-8 col-lg-5">
+    
+                <div class="imagen" *ngIf="imgService.url">
+                    <img [src]="imgService.url" alt="" width="200px">
+
+                </div>
+                <div class="imagen" *ngIf="!imgService.url">
+                    <img 
+                        src="https://firebasestorage.googleapis.com/v0/b/devzedportfolio.appspot.com/o/imagen%2Fdefault-placeholder.png?alt=media&token=4c202c29-27ec-450c-b4a5-78eebd195f5a" 
+                        alt="" width="200px"
+                    >
+
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Nombre skill</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nombre"  required>
+
+                    <label for="porcentaje">Porcentaje</label>
+                    <input type="text" class="form-control" id="porcentaje" name="porcentaje"  [(ngModel)]="porcentaje" required>
+                   
+
+                    <label for="img">imagen</label>
+                    <input 
+                        (change)="uploadImage($event)"
+                        accept=".jpg, .jpeg, .png"
+                        type="file" 
+                        class="form-control" 
+                        id="img" name="img" 
+                        [(ngModel)]="img"
+                        required
+                    >
+
+                </div>
+
+                <div class="buttons-container">
+                    <button class="btn btn-danger mt-3 align-items-center" routerLink="">
+                        Volver
+                    </button>
+
+                    <!-- <button 
+                    *ngIf="!imgService.url"
+                    disabled
+                    class="btn btn-danger mt-3 align-items-center" >
+                        Agregar Proyecto
+                    </button> -->
+
+                    <button 
+                                     
+                    class="btn btn-danger mt-3 align-items-center" >
+                        Agregar Skill
+                    </button>
+                </div>
+            </form>        
+        </div>
+    </div>
+</div>

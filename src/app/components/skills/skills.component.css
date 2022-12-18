@@ -7,3 +7,19 @@
     padding: 15px;
 }
 
+.add-btn{
+    position: absolute;
+    right: 0;
+    padding: 1px;
+  
+  }
+
+  .admin-icon-container{
+    z-index: 1000;
+    margin-top: 200px;
+  }
+
+.icon-container{
+  display: flex;
+  justify-content: center;
+}
