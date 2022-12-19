@@ -2,19 +2,21 @@
 <div class="container-fluid">
     <div id="about" class="row about-section">
         <div class="col-lg-4 about-card">
-            <div class="admin-icon-container">
-                <fa-icon [icon]="faPenToSquare" class="admin-icon edit-icon"></fa-icon>
+            <div class="admin-icon-container" *ngIf="isLogged">
+                <fa-icon [icon]="faPenToSquare" class="admin-icon edit-icon" routerLink="/editabout/1"></fa-icon>
                 <!-- <fa-icon [icon]="faTrashCan" class="admin-icon delete-icon"></fa-icon> -->
             </div>
             <h3 class="font-weight-light">Quien soy?</h3>
             <span class="line mb-5"></span>
-            <h5 class="mb-3">Soy un desarrollador web full stack, especializado en front-end con React.js.</h5>
-            <p class="mt-20">Capacitado en Digital House en Programación, y Fundación Formar en habilidades blandas y metodologías ágiles para una mayor eficiencia en el trabajo grupal y/o individual; actualmente me encuentro estudiando en Argentina Programa, Angular con POO</p>
+            <!-- <h5 class="mb-3">Soy un desarrollador web full stack, especializado en front-end con React.js.</h5> -->
+            <!-- <p class="mt-20">Capacitado en Digital House en Programación, y Fundación Formar en habilidades blandas y metodologías ágiles para una mayor eficiencia en el trabajo grupal y/o individual; actualmente me encuentro estudiando en Argentina Programa, Angular con POO</p> -->
+            <h5 class="mb-3">{{ about.title }} </h5>
+            <p class="mt-20">{{ about.info }}</p>
             <button class="btn btn-outline-danger"><i class="icon-down-circled2 "></i>Descargar CV</button>
         </div>
         <div class="col-lg-4 about-card">
             <div class="admin-icon-container" *ngIf="isLogged">
-                <fa-icon [icon]="faPenToSquare" class="admin-icon edit-icon" routerLink="/editabout/1"></fa-icon>
+                <fa-icon [icon]="faPenToSquare" class="admin-icon edit-icon" routerLink="/editpersona/1"></fa-icon>
                 <!-- <fa-icon [icon]="faTrashCan" class="admin-icon delete-icon"></fa-icon> -->
             </div>
 
@@ -29,10 +31,10 @@
 
         </div>
         <div class="col-lg-4 about-card">
-            <div class="admin-icon-container">
+            <!-- <div class="admin-icon-container">
                 <fa-icon [icon]="faPenToSquare" class="admin-icon edit-icon"></fa-icon>
-                <!-- <fa-icon [icon]="faTrashCan" class="admin-icon delete-icon"></fa-icon> -->
-            </div>
+                <fa-icon [icon]="faTrashCan" class="admin-icon delete-icon"></fa-icon>
+            </div> -->
 
             <h3 class="font-weight-light">Especialidades</h3>
             <span class="line mb-5"></span>

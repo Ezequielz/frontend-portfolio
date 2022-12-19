@@ -27,6 +27,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { EditSkillComponent } from './components/skills/edit-skill.component';
 import { NewSkillComponent } from './components/skills/new-skill.component';
+import { EditPersonaComponent } from './components/about/edit-persona.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { NewSkillComponent } from './components/skills/new-skill.component';
     EditProjectComponent,
     EditAboutComponent,
     EditSkillComponent,
-    NewSkillComponent
+    NewSkillComponent,
+    EditPersonaComponent
   ],
   imports: [
     BrowserModule,

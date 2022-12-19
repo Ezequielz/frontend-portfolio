@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Persona } from 'src/app/model/persona.model';
-import { ImageService } from 'src/app/services/image.service';
-import { PersonaService } from 'src/app/services/persona.service';
+import { About } from 'src/app/model/about';
+import { AboutService } from 'src/app/services/about.service';
+
 
 @Component({
   selector: 'app-edit-about',
@@ -11,46 +11,37 @@ import { PersonaService } from 'src/app/services/persona.service';
 })
 export class EditAboutComponent implements OnInit {
 
-  persona: Persona = null;
- 
+  about: About = null;
 
-  constructor(private personaService: PersonaService ,
+  constructor(private aboutService: AboutService ,
     private activatedRouter: ActivatedRoute,
-    private router: Router  ,
-    public imgService: ImageService
+    private router: Router  
     ) { }
 
-  ngOnInit(): void {
-    const id = this.activatedRouter.snapshot.params['id'];
-    this.imgService.cleanUrl();
-    this.personaService.detail(id).subscribe( data => {
-      this.persona = data;
-    }, err =>{
-      alert("Error al modificar el proyecto");
-      this.router.navigate(['']);
-    });
+ngOnInit(): void {
+
+  const id = this.activatedRouter.snapshot.params['id'];
+
+  this.aboutService.detail(id).subscribe( data => {
+    this.about = data;
+  }, err =>{
+    alert("Error al modificar el proyecto");
+    this.router.navigate(['']);
+  });
+  
+}
+
+onUpdate(){
+
+  const id = this.activatedRouter.snapshot.params['id'];
+     
+  this.aboutService.update( id, this.about ).subscribe( data => {
     
-  }
-
-  onUpdate(): void{
-    const id = this.activatedRouter.snapshot.params['id'];
+    this.router.navigate(['']);
+  },err =>{
     
-    this.persona.img = this.imgService.url
-   
-    this.personaService.update( id, this.persona ).subscribe( data => {
-      
-      this.router.navigate(['']);
-    },err =>{
-      
-      alert("Error al modificar la persona");
-      this.router.navigate(['']);
-    });
-
-  }
-
-  uploadImage($event: any){
-    const id = this.activatedRouter.snapshot.params['id'];
-    const name = "perfil_" + id
-    this.imgService.uploadImage( $event, name );
-  }
+    alert("Error al modificar la about");
+    this.router.navigate(['']);
+  });
+}
 }
