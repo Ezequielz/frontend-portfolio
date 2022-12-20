@@ -32,10 +32,20 @@
             <h1 class="header-title col-sm-12">Ezequiel Zapata</h1>
             <h6 class="header-mono col-sm-12" >Desarrollador web Full Stack</h6>
             
-            <button class="btn btn-danger btn-rounded cv ">
-                <fa-icon [icon]="faCloudArrowDown"></fa-icon>
-                    Descargar CV
-            </button>
+            <!-- <button class="btn btn-danger btn-rounded cv "> -->
+                <a
+                [href]="cv"
+                class="btn btn-danger btn-rounded cv"
+                target="_blank"
+
+                rel="noreferrer"
+                download
+            >
+                Curriculum Vitae 
+            </a> 
+                <!-- <fa-icon [icon]="faCloudArrowDown"></fa-icon> -->
+                 
+            <!-- </button> -->
 
         </div>
     </div>

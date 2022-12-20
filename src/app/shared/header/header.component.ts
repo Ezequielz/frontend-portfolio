@@ -3,6 +3,7 @@ import { faCloudArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faGithub,faFacebookF, faWhatsapp, faLinkedinIn} from '@fortawesome/free-brands-svg-icons';
 import { TokenService } from '../../services/token.service';
+import { ContactService } from 'src/app/services/contact.service';
 
 @Component({
   selector: 'app-header',
@@ -19,10 +20,18 @@ export class HeaderComponent implements OnInit {
 
   isLogged = false;
 
+  cv : string = ""
   
-  constructor( private tokenService: TokenService) { }
+  constructor( private tokenService: TokenService,
+      private contactService: ContactService
+    ) { }
 
   ngOnInit(): void {
+    this.contactService.detail(1).subscribe( data => {
+      this.cv = data.cv
+      
+    })
+
     if( this.tokenService.getToken() ){
       this.isLogged = true;
     }else{

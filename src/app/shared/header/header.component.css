@@ -72,6 +72,11 @@
     right: 20px;
   }
 
+  .cv{
+    text-decoration:none ;
+    color: white;
+  }
+
   @media (max-width: 990px) {
 
     .ap-logo{

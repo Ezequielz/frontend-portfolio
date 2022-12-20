@@ -15,10 +15,10 @@
                 <div class="form text-center col-12 col-md-6 ">
     
                     <div class="redes ">
-                        <a class="social-link " href="{{ contact.linkedin }}"><fa-icon [icon]="faGithub"></fa-icon></a>
-                        <a class="social-link " href="{{ contact.tel }}"><fa-icon [icon]="faWhatsapp"></fa-icon></a>
-                        <a class="social-link " href="{{ contact.github }}"><fa-icon [icon]="faLinkedin"></fa-icon></a>
-                        <a class="social-link " href="{{ contact.email }}"><fa-icon [icon]="faEnvelope"></fa-icon></a>
+                        <a class="social-link " target="_blank" rel="noreferrer" href="{{ contact.github }}"><fa-icon [icon]="faGithub"></fa-icon></a>
+                        <a class="social-link " target="_blank" rel="noreferrer" href="https://wa.me/549{{ contact.tel }}"><fa-icon [icon]="faWhatsapp"></fa-icon></a>
+                        <a class="social-link " target="_blank" rel="noreferrer" href="{{ contact.linkedin }}"><fa-icon [icon]="faLinkedin"></fa-icon></a>
+                        <a class="social-link " target="_blank" rel="noreferrer" href="mailto:{{ contact.email }}?subject=PorfolioContacto"><fa-icon [icon]="faEnvelope"></fa-icon></a>
     
                     </div>
     
