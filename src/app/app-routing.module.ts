@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EditAboutComponent } from './components/about/edit-about.component';
 import { EditPersonaComponent } from './components/about/edit-persona.component';
+import { EditContactComponent } from './components/contact/edit-contact.component';
 import { LoginComponent } from './components/login/login.component';
 
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
@@ -43,6 +44,10 @@ const routes: Routes = [
     {
         path: 'editpersona/:id',
         component: EditPersonaComponent
+    },
+    {
+        path: 'editcontact/:id',
+        component: EditContactComponent
     },
     {
         path: '**',

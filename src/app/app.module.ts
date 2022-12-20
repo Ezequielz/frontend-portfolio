@@ -28,6 +28,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { EditSkillComponent } from './components/skills/edit-skill.component';
 import { NewSkillComponent } from './components/skills/new-skill.component';
 import { EditPersonaComponent } from './components/about/edit-persona.component';
+import { SafePipe } from './safe.pipe';
+import { EditContactComponent } from './components/contact/edit-contact.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { EditPersonaComponent } from './components/about/edit-persona.component'
     EditAboutComponent,
     EditSkillComponent,
     NewSkillComponent,
-    EditPersonaComponent
+    EditPersonaComponent,
+    SafePipe,
+    EditContactComponent
   ],
   imports: [
     BrowserModule,

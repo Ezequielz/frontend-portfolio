@@ -1,0 +1,55 @@
+<div class=" add-project-container" >
+    <div class="container project">
+        <h1 class="title-project">Actualizar Contacto</h1>
+
+        <div class="row project-box">
+            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm" class="col-12 col-sm-8 col-lg-5">
+                
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" [(ngModel)]="contact.email" required>
+                   
+                    <label for="img">Curriculum Vitae (solo .pdf)</label>
+                    <input 
+                        (change)="uploadImage($event)"
+                        accept=".pdf"
+                        type="file" 
+                        class="form-control" 
+                        id="cv" name="cv" 
+                        [(ngModel)]="contact.cv" 
+                        
+                    >
+    
+                    <label for="city">Ciudad en el mapa</label>
+                    <input type="text" class="form-control" id="city" name="city" [(ngModel)]="contact.city" required>
+                    
+                    <label for="github">Perfil de GitHub</label>
+                    <input type="text" class="form-control" id="github" name="github" [(ngModel)]="contact.github" required>
+                   
+                    <label for="linkedin">Perfil de linkedin</label>
+                    <input type="text" class="form-control" id="linkedin" name="linkedin" [(ngModel)]="contact.linkedin" required>
+                   
+                    <label for="tel">WhatsApp</label>
+                    <input type="text" class="form-control" id="tel" name="tel" [(ngModel)]="contact.tel" required>
+                   
+                    
+                </div>
+
+                <div class="buttons-container">
+                    <button class="btn btn-danger mt-3 align-items-center" routerLink="">
+                        Volver
+                    </button>
+
+                    <button 
+                   
+                    class="btn btn-danger mt-3 align-items-center" 
+                    >
+                        Actualizar
+                    </button>
+                </div>
+
+            </form>        
+        </div>
+    </div>
+</div>

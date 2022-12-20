@@ -1,39 +1,45 @@
 
-    <section class="section mt-5" id="contacto">
+    <section class="section mt-5" id="contacto" *ngIf="contact">
+        <div class="container">
 
-        <div class="position-relative d-flex align-items-center justify-content-center col-12">
-            <h2 class="display-1 text-uppercase text-white title-section" style="-webkit-text-stroke: 1px #dee2e6;">Contacto</h2>
-            <h2 class="display-2  position-absolute text-uppercase text-primary subtitle-section">Contactame</h2>
-        </div>
-
-        <div class="container map-form row">
-
-            <div class="form text-center col-12 col-md-6 ">
-
-                <div class="redes ">
-                    <a class="social-link " href="#"><fa-icon [icon]="faGithub"></fa-icon></a>
-                    <a class="social-link " href="#"><fa-icon [icon]="faWhatsapp"></fa-icon></a>
-                    <a class="social-link " href="#"><fa-icon [icon]="faLinkedin"></fa-icon></a>
-                    <a class="social-link " href="#"><fa-icon [icon]="faEnvelope"></fa-icon></a>
-
-                </div>
-
-                <div class="col-12">
-
-                    <input class=" inp" type="nombre" name="nombre" id="nombre" placeholder="Nombre">
-                    <input class=" inp" type="email" name="email" id="email" placeholder="Email">
-                </div>
-                <textarea class="col-12 inp" name="" id="" cols="50" rows="10" placeholder="Comenta tus dudas/inquietudes o lo que estás buscando! "></textarea>
-                <button class="btn btn-danger btn-rounded">Enviar</button>
+            <div class="position-relative d-flex align-items-center justify-content-center col-12">
+                <h2 class="display-1 text-uppercase text-white title-section" style="-webkit-text-stroke: 1px #dee2e6;">Contacto</h2>
+                <h2 class="display-2  position-absolute text-uppercase text-primary subtitle-section">Contactame</h2>
+                <button class="btn btn-primary add-icon" type="button" routerLink="/editcontact/1" *ngIf="isLogged">
+                    <fa-icon [icon]="faPenToSquare" class="admin-icon "></fa-icon>
+                </button>
             </div>
     
-            <div class="map-container col-12 col-md-6">
-                <iframe src="https://maps.google.com/maps?q=lanus&t=&z=11&ie=UTF8&iwloc=&output=embed"    
-                    width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+            <div class="container map-form row">
+    
+                <div class="form text-center col-12 col-md-6 ">
+    
+                    <div class="redes ">
+                        <a class="social-link " href="{{ contact.linkedin }}"><fa-icon [icon]="faGithub"></fa-icon></a>
+                        <a class="social-link " href="{{ contact.tel }}"><fa-icon [icon]="faWhatsapp"></fa-icon></a>
+                        <a class="social-link " href="{{ contact.github }}"><fa-icon [icon]="faLinkedin"></fa-icon></a>
+                        <a class="social-link " href="{{ contact.email }}"><fa-icon [icon]="faEnvelope"></fa-icon></a>
+    
+                    </div>
+    
+                    <div class="col-12">
+    
+                        <input class=" inp" type="nombre" name="nombre" id="nombre" placeholder="Nombre">
+                        <input class=" inp" type="email" name="email" id="email" placeholder="Email">
+                    </div>
+                    <textarea class="col-12 inp" name="" id="" cols="50" rows="10" placeholder="Comenta tus dudas/inquietudes o lo que estás buscando! "></textarea>
+                    <button class="btn btn-danger btn-rounded">Enviar</button>
+                </div>
+    
+                <div class="map-container col-12 col-md-6" >
+                    <iframe *ngIf="contact" [src]="urlMap | safe"
+                        width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+        
+                </div>
     
             </div>
-
         </div>
+
 
 
        

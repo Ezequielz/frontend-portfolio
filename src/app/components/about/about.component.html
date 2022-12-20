@@ -1,6 +1,6 @@
 
 <div class="container-fluid">
-    <div id="about" class="row about-section">
+    <div id="about" class="row about-section" *ngIf="about">
         <div class="col-lg-4 about-card">
             <div class="admin-icon-container" *ngIf="isLogged">
                 <fa-icon [icon]="faPenToSquare" class="admin-icon edit-icon" routerLink="/editabout/1"></fa-icon>

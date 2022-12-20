@@ -22,3 +22,10 @@
 .social-link:hover{
     color: red;
 }
+
+.add-icon{
+    position: absolute;
+    right: 0;
+    padding: 1px;
+  
+  }
