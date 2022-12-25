@@ -12,6 +12,7 @@ export const environment = {
     authDomain: 'devzedportfolio.firebaseapp.com',
     messagingSenderId: '877180227494',
   },
+  URL: 'http://localhost:8080/',
   production: false
 };
 
