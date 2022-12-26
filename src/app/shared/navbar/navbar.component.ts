@@ -24,4 +24,20 @@ export class NavbarComponent implements OnInit {
     })
   }
 
+  toHeader(){
+    document.getElementById('header').scrollIntoView()
+  }
+  toAbout(){
+    document.getElementById('about').scrollIntoView()
+  }
+  toProject(){
+    document.getElementById('project').scrollIntoView()
+  }
+  toSkill(){
+    document.getElementById('skills').scrollIntoView()
+  }
+  toContact(){
+    document.getElementById('contacto').scrollIntoView()
+  }
+
 }

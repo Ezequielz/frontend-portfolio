@@ -2,6 +2,10 @@
     width: 100%;
 }
 
+.skill-container{
+  padding-top: 50px;
+}
+
 .skills .card-body .img-content{
     margin: auto;
     padding: 15px;

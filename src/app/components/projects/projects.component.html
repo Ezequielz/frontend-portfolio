@@ -1,5 +1,5 @@
-<section class="section bg-custom-gray" id="portfolio">
-    <div class="container">
+<section class="section bg-custom-gray" id="project">
+    <div class="container project-container">
         <div class="position-relative d-flex align-items-center justify-content-center col-12">
             <h2 class="display-1 text-uppercase text-white title-section" style="-webkit-text-stroke: 1px #dee2e6;">Proyectos</h2>
             <h2 class="display-2  position-absolute text-uppercase text-primary subtitle-section">Mis Proyectos</h2>
@@ -11,7 +11,7 @@
         <div class="portfolio">
 
 
-        <div class="project-container row">
+        <div class="card-container row">
             <div *ngFor="let project of projects" class="col-12 col-sm-6 col-md-4 col-lg-3" >
                 <div class="card">
                     <img [src]="project.img" [alt]="project.title" >

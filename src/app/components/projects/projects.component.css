@@ -1,7 +1,11 @@
 
-.project-container {
+.project-container{
+  padding-top: 50px;
+}
+.card-container {
   gap: 15px 0;
 }
+
  .card{
   border-radius: 12px;
   box-shadow: 10px 10px 24px -12px rgba(0,0,0,0.75);
