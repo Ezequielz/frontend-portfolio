@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg " id="navbar">
+<nav class="navbar navbar-expand-lg" id="navbar">
     <div class="container-fluid">
         <div class="titleMobile">
             <h5 class="title">  <span><</span>Ezequiel Zapata<span>/></span></h5>
@@ -7,6 +7,7 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
 
       <div class="collapse navbar-collapse" id="navbarScroll">
         <ul class="navbar-nav " style="--bs-scroll-height: 90vh;"  >
@@ -22,9 +23,9 @@
 
             <ul class="navbar-nav brand" id="brand">
                 <a class="nav-link" href="#">
-                    <img src="assets/imgs/avatar.jpg" alt="" class="brand-img" id="brand-img" data-aos="fade-up" data-aos-offset="-550">
-                    <li class="brand-txt" id="brand-txt" data-aos="fade-up">
-                        <h5 class="brand-title" data-aos="fade-up">  <span><</span>Ezequiel Zapata<span>/></span></h5>
+                  <img [src]="persona.img" alt="" class="brand-img" id="brand-img" >
+                  <li class="brand-txt" id="brand-txt">
+                        <h5 class="brand-title" >  <span><</span>{{ persona.nombre }} {{ persona.apellido }}<span>/></span></h5>
                         <div class="brand-subtitle">Full Stack Developer</div>
                     </li>
                 </a>

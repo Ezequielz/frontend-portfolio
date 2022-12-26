@@ -5,6 +5,7 @@
     box-shadow: 0 5px 1px rgba(128, 128, 128, 0.13);
     padding: 0.8rem 1rem;
     z-index: 10;
+    margin-bottom: 30px;
   }
 
 .navbar .navbar-nav{
@@ -30,13 +31,13 @@
     border-radius: 50%;
     border: 10px solid var(--light);
     box-shadow: 0 5px 1px rgba(128, 128, 128, 0.13);
-    height: 190px;
+    height: 250px;
     left: 50%;
     object-fit: cover;
     position: absolute;
     top: 50%;
     transition: .5s !important;
-    width: 170px;
+    width: 210px;
     z-index: 2;
   }
   .navbar .brand .brand-txt {
