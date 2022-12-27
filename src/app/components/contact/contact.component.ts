@@ -31,7 +31,7 @@ export class ContactComponent implements OnInit {
   isLogged = false
   ngOnInit(): void {
     this.loadContact();
-    console.log(this.contact)
+   
     if(this.tokenService.getToken()){
       this.isLogged = true
 

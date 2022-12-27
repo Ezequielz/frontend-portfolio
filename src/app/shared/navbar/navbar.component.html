@@ -21,9 +21,9 @@
                 </li>
             </ul>
 
-            <ul class="navbar-nav brand" id="brand">
+            <ul class="navbar-nav brand" id="brand"  *ngIf="persona">
                 <div (click)="toHeader()" class="nav-link">
-                  <img [src]="persona.img" alt="" class="brand-img" id="brand-img" >
+                  <img [src]="persona.img" alt="" class="brand-img" id="brand-img">
                   <li class="brand-txt" id="brand-txt">
                         <h5 class="brand-title" >  <span><</span>{{ persona.nombre }} {{ persona.apellido }}<span>/></span></h5>
                         <div class="brand-subtitle">Full Stack Developer</div>

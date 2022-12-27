@@ -10,6 +10,7 @@ import { EditProjectComponent } from './components/projects/edit-project.compone
 import { NewProjectComponent } from './components/projects/new-project.component';
 import { EditSkillComponent } from './components/skills/edit-skill.component';
 import { NewSkillComponent } from './components/skills/new-skill.component';
+import { AuthGuard } from './services/guards/auth.guard';
 
 const routes: Routes = [
     {
@@ -23,31 +24,45 @@ const routes: Routes = [
     },
     {
         path: 'newproject',
-        component: NewProjectComponent
+        component: NewProjectComponent,
+        canLoad: [AuthGuard],
+        canActivate: [AuthGuard]
     },
     {
         path: 'editproject/:id',
-        component: EditProjectComponent
+        component: EditProjectComponent,
+        canLoad: [AuthGuard],
+        canActivate: [AuthGuard]
     },
     {
         path: 'newskill',
-        component: NewSkillComponent
+        component: NewSkillComponent,
+        canLoad: [AuthGuard],
+        canActivate: [AuthGuard]
     },
     {
         path: 'editskill/:id',
-        component: EditSkillComponent
+        component: EditSkillComponent,
+        canLoad: [AuthGuard],
+        canActivate: [AuthGuard]
     },
     {
         path: 'editabout/:id',
-        component: EditAboutComponent
+        component: EditAboutComponent,
+        canLoad: [AuthGuard],
+        canActivate: [AuthGuard]
     },
     {
         path: 'editpersona/:id',
-        component: EditPersonaComponent
+        component: EditPersonaComponent,
+        canLoad: [AuthGuard],
+        canActivate: [AuthGuard]
     },
     {
         path: 'editcontact/:id',
-        component: EditContactComponent
+        component: EditContactComponent,
+        canLoad: [AuthGuard],
+        canActivate: [AuthGuard]
     },
     {
         path: '**',
