@@ -15,11 +15,21 @@
     padding: 5px;
 }
 
+.redes-container{
+    display: flex;
+   align-items: center;
+   justify-content: center;
+
+}
+.redes{
+    gap: 5px;
+}
 .social-link{
     color: var(--red);
     text-decoration: none;
     margin: 10px;
-    font-size: 2rem;
+    font-size: 5rem;
+
 }
 
 .social-link:hover{
