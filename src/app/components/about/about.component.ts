@@ -30,12 +30,19 @@ export class AboutComponent implements OnInit {
     ) { }
 
   isLogged = false
- 
+  isAdmin = false
+  asd = ''
   ngOnInit(): void {
     this.loadPersona();
     this.loadAbout();
     if(this.tokenService.getToken()){
       this.isLogged = true
+
+     if ( JSON.parse(sessionStorage.getItem('AuthAuthorities'))[1]){
+      
+      this.isAdmin = true
+     }
+     
     }else{
       this.isLogged = false
     }

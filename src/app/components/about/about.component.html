@@ -2,7 +2,7 @@
 <section id="about" class="container-fluid">
     <div  class="row about-section" *ngIf="about">
         <div class="col-lg-4 about-card">
-            <div class="admin-icon-container" *ngIf="isLogged">
+            <div class="admin-icon-container" *ngIf="isAdmin">
                 <fa-icon [icon]="faPenToSquare" class="admin-icon edit-icon" routerLink="/editabout/1"></fa-icon>
                 <!-- <fa-icon [icon]="faTrashCan" class="admin-icon delete-icon"></fa-icon> -->
             </div>
@@ -15,7 +15,7 @@
             <!-- <button class="btn btn-outline-danger"><i class="icon-down-circled2 "></i>Descargar CV</button> -->
         </div>
         <div class="col-lg-4 about-card">
-            <div class="admin-icon-container" *ngIf="isLogged">
+            <div class="admin-icon-container" *ngIf="isAdmin">
                 <fa-icon [icon]="faPenToSquare" class="admin-icon edit-icon" routerLink="/editpersona/1"></fa-icon>
                 <!-- <fa-icon [icon]="faTrashCan" class="admin-icon delete-icon"></fa-icon> -->
             </div>
@@ -27,6 +27,7 @@
                 <li><span>Nacimiento</span> : {{ persona.nacimiento }} </li>
                 <li><span>Nacionalidad</span> {{persona.nacionalidad}} </li>
                 <li><span>Domicilio</span> : {{persona.domicilio}} </li>
+                {{asd}}
             </ul>
 
         </div>

@@ -24,7 +24,7 @@ export class ContactComponent implements OnInit {
 
   contact: Contact = null;
   urlMap:string = "" 
-
+  isAdmin = false
 
   constructor( private tokenService: TokenService, private contactService: ContactService,) { }
   
@@ -34,6 +34,12 @@ export class ContactComponent implements OnInit {
     console.log(this.contact)
     if(this.tokenService.getToken()){
       this.isLogged = true
+
+      if ( JSON.parse(sessionStorage.getItem('AuthAuthorities'))[1] ){
+
+        this.isAdmin = true
+       }
+
     }else{
       this.isLogged = false
     }

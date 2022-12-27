@@ -19,12 +19,18 @@ export class SkillsComponent implements OnInit {
   constructor( private skillService: SkillService, private tokenService: TokenService ) { }
 
   isLogged = false;
+  isAdmin = false
 
   ngOnInit(): void {
     this.loadSkills();
 
     if(this.tokenService.getToken()){
       this.isLogged = true
+
+      if ( JSON.parse(sessionStorage.getItem('AuthAuthorities'))[1] ){
+
+        this.isAdmin = true
+       }
     }else{
       this.isLogged = false
     }

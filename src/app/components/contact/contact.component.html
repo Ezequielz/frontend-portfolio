@@ -5,7 +5,7 @@
             <div class="position-relative d-flex align-items-center justify-content-center col-12">
                 <h2 class="display-1 text-uppercase text-white title-section" style="-webkit-text-stroke: 1px #dee2e6;">Contacto</h2>
                 <h2 class="display-2  position-absolute text-uppercase text-primary subtitle-section">Contactame</h2>
-                <button class="btn btn-primary add-icon" type="button" routerLink="/editcontact/1" *ngIf="isLogged">
+                <button class="btn btn-primary add-icon" type="button" routerLink="/editcontact/1" *ngIf="isAdmin">
                     <fa-icon [icon]="faPenToSquare" class="admin-icon "></fa-icon>
                 </button>
             </div>

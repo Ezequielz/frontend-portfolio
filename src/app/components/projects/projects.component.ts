@@ -22,7 +22,7 @@ export class ProjectsComponent implements OnInit {
   faPlus=faPlus
 
   projects: Project[] = [];
-
+  isAdmin = false
 
   constructor( private projectsService : ProjectsService, private tokenService: TokenService ) {}
       
@@ -32,6 +32,10 @@ export class ProjectsComponent implements OnInit {
     this.loadProjects();
     if(this.tokenService.getToken()){
       this.isLogged = true
+      if ( JSON.parse(sessionStorage.getItem('AuthAuthorities'))[1] ){
+
+        this.isAdmin = true
+       }
     }else{
       this.isLogged = false
     }
