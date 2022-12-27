@@ -1,8 +1,8 @@
 <section class="section bg-custom-gray" id="project">
     <div class="container project-container">
         <div class="position-relative d-flex align-items-center justify-content-center col-12">
-            <h2 class="display-1 text-uppercase text-white title-section" style="-webkit-text-stroke: 1px #dee2e6;">Proyectos</h2>
-            <h2 class="display-2  position-absolute text-uppercase text-primary subtitle-section">Mis Proyectos</h2>
+            <h2 class="display-1 text-uppercase text-white title-section" style="-webkit-text-stroke: 1px #dee2e6;" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true">Proyectos</h2>
+            <h2 class="display-2  position-absolute text-uppercase text-primary subtitle-section" data-aos="fade-left" data-aos-duration="1000" data-aos-once="true">Mis Proyectos</h2>
             <button class="btn btn-danger add-btn" type="button" routerLink="/newproject" *ngIf="isAdmin">
                 <fa-icon [icon]="faPlus" class="admin-icon "></fa-icon>
             </button>
@@ -12,7 +12,12 @@
 
 
         <div class="card-container row">
-            <div *ngFor="let project of projects" class="col-12 col-sm-6 col-md-4 col-lg-3" >
+            <div *ngFor="let project of projects" class="col-12 col-sm-6 col-md-4 col-lg-3" 
+                data-aos="flip-left"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="2000"
+                data-aos-once="true"
+            >
                 <div class="card">
                     <img [src]="project.img" [alt]="project.title" >
                     <div class="admin-icon-container mt-2" *ngIf="isAdmin">

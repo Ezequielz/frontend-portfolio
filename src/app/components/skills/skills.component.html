@@ -2,8 +2,8 @@
 
     <div class="container skill-container">
         <div class="position-relative d-flex align-items-center justify-content-center col-12">
-            <h2 class="display-1 text-uppercase text-white title-section" style="-webkit-text-stroke: 1px #dee2e6;">Habilidades</h2>
-            <h2 class="display-2  position-absolute text-uppercase text-primary subtitle-section">Mis Habilidades</h2>
+            <h2 class="display-1 text-uppercase text-white title-section" style="-webkit-text-stroke: 1px #dee2e6;" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true">Habilidades</h2>
+            <h2 class="display-2  position-absolute text-uppercase text-primary subtitle-section" data-aos="fade-left" data-aos-duration="1000" data-aos-once="true">Mis Habilidades</h2>
             <button class="btn btn-danger add-btn" type="button" routerLink="/newskill" *ngIf="isAdmin" >
                 <fa-icon [icon]="faPlus" class="admin-icon "></fa-icon>
             </button>
@@ -11,7 +11,7 @@
 
         <div class="row justify-content-center">
 
-            <div class="col-sm-4 col-md-4 col-lg-2 circle-container" *ngFor="let skill of skill">
+            <div class="col-sm-4 col-md-4 col-lg-2 circle-container" *ngFor="let skill of skill" data-aos="zoom-in-left" data-aos-duration="1000" data-aos-once="true">
                 <div class="icon-container " *ngIf="isAdmin">
               
                     <fa-icon 

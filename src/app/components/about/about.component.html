@@ -1,7 +1,7 @@
 
 <section id="about" class="container-fluid">
     <div  class="row about-section" *ngIf="about">
-        <div class="col-lg-4 about-card">
+        <div class="col-lg-4 about-card" data-aos="fade-right" data-aos-duration="1000">
             <div class="admin-icon-container" *ngIf="isAdmin">
                 <fa-icon [icon]="faPenToSquare" class="admin-icon edit-icon" routerLink="/editabout/1"></fa-icon>
                 <!-- <fa-icon [icon]="faTrashCan" class="admin-icon delete-icon"></fa-icon> -->
@@ -14,7 +14,7 @@
             <p class="mt-20">{{ about.info }}</p>
             <!-- <button class="btn btn-outline-danger"><i class="icon-down-circled2 "></i>Descargar CV</button> -->
         </div>
-        <div class="col-lg-4 about-card">
+        <div class="col-lg-4 about-card" data-aos="fade-up" data-aos-duration="1000">
             <div class="admin-icon-container" *ngIf="isAdmin">
                 <fa-icon [icon]="faPenToSquare" class="admin-icon edit-icon" routerLink="/editpersona/1"></fa-icon>
                 <!-- <fa-icon [icon]="faTrashCan" class="admin-icon delete-icon"></fa-icon> -->
@@ -23,7 +23,8 @@
             <h3 class="font-weight-light">Información personal</h3>
             <span class="line mb-5"></span>
             <ul class="mt40 info list-unstyled" *ngIf="persona">
-                <li><span>Nombre</span>: {{persona.nombre}} {{ persona.apellido }} </li>
+                <li><span>Nombre</span>: {{persona.nombre}} </li>
+                <li><span>Apellido</span>: {{ persona.apellido }} </li>
                 <li><span>Nacimiento</span> : {{ persona.nacimiento }} </li>
                 <li><span>Nacionalidad</span> {{persona.nacionalidad}} </li>
                 <li><span>Domicilio</span> : {{persona.domicilio}} </li>
@@ -31,7 +32,7 @@
             </ul>
 
         </div>
-        <div class="col-lg-4 about-card">
+        <div class="col-lg-4 about-card" data-aos="fade-left" data-aos-duration="1000">
             <!-- <div class="admin-icon-container">
                 <fa-icon [icon]="faPenToSquare" class="admin-icon edit-icon"></fa-icon>
                 <fa-icon [icon]="faTrashCan" class="admin-icon delete-icon"></fa-icon>

@@ -1,13 +1,16 @@
 
+
+
 .about-section {
     border-bottom: 1px solid #dee2e6;
-    padding-top: 50px;
+    /* padding-top: 50px; */
   }
 
   .about-section .about-card {
     position: relative;
     padding: 10px 30px ;
     border-right: 1px solid #dee2e6;
+    margin-top: 100px;
   }
 
   

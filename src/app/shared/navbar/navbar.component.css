@@ -5,7 +5,7 @@
     box-shadow: 0 5px 1px rgba(128, 128, 128, 0.13);
     padding: 0.8rem 1rem;
     z-index: 10;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
   }
 
 .navbar .navbar-nav{
