@@ -12,6 +12,7 @@ import { EditSkillComponent } from './components/skills/edit-skill.component';
 import { NewSkillComponent } from './components/skills/new-skill.component';
 import { AuthGuard } from './services/guards/auth.guard';
 
+
 const routes: Routes = [
     {
         path: '',
