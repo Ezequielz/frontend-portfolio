@@ -11,7 +11,7 @@
 
         <div class="row justify-content-center">
 
-            <div class="col-sm-4 col-md-4 col-lg-2 circle-container" *ngFor="let skill of skill" data-aos="zoom-in-left" data-aos-duration="1000" data-aos-once="true">
+            <div class="col-4 col-md-3 col-lg-2 circle-container" *ngFor="let skill of skill" data-aos="zoom-in-left" data-aos-duration="1000" data-aos-once="true">
                 <div class="icon-container " *ngIf="isAdmin">
               
                     <fa-icon 
@@ -31,11 +31,11 @@
                 </div>
                 <circle-progress
                     [percent]="(skill.porcentaje)"
-                    [radius]="80"
+                    [radius]="70"
                     [showImage]="true"
                     [imageSrc]="(skill.img)"
-                    [imageHeight]="90"
-                    [imageWidth]="90"
+                    [imageHeight]="40"
+                    [imageWidth]="40"
                     [outerStrokeWidth]="10"
                     [innerStrokeWidth]="2"
                     [outerStrokeColor]="'#dc3545'"

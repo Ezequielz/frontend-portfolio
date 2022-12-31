@@ -8,6 +8,6 @@ export const environment = {
     authDomain: 'devzedportfolio.firebaseapp.com',
     messagingSenderId: '877180227494',
   },
-  URL: 'https://devzed-backend.up.railway.app/',
+  URL: 'https://backend-argentina-programa.onrender.com',
   production: true
 };

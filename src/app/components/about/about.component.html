@@ -1,20 +1,21 @@
 
 <section id="about" class="container-fluid">
     <div  class="row about-section" *ngIf="about">
-        <div class="col-lg-4 about-card" data-aos="fade-right" data-aos-duration="1000">
-            <div class="admin-icon-container" *ngIf="isAdmin">
-                <fa-icon [icon]="faPenToSquare" class="admin-icon edit-icon" routerLink="/editabout/1"></fa-icon>
-                <!-- <fa-icon [icon]="faTrashCan" class="admin-icon delete-icon"></fa-icon> -->
-            </div>
-            <h3 class="font-weight-light">Quien soy?</h3>
-            <span class="line mb-5"></span>
-            <!-- <h5 class="mb-3">Soy un desarrollador web full stack, especializado en front-end con React.js.</h5> -->
-            <!-- <p class="mt-20">Capacitado en Digital House en Programación, y Fundación Formar en habilidades blandas y metodologías ágiles para una mayor eficiencia en el trabajo grupal y/o individual; actualmente me encuentro estudiando en Argentina Programa, Angular con POO</p> -->
-            <h5 class="mb-3">{{ about.title }} </h5>
-            <p class="mt-20">{{ about.info }}</p>
-            <!-- <button class="btn btn-outline-danger"><i class="icon-down-circled2 "></i>Descargar CV</button> -->
+        <div class="position-relative d-flex align-items-center justify-content-center col-12">
+            <h2 class="display-1 text-uppercase text-white title-section" style="-webkit-text-stroke: 1px #dee2e6;" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true">Sobre Mi</h2>
+            <h2 class="display-2  position-absolute text-uppercase text-primary subtitle-section" data-aos="fade-left" data-aos-duration="1000" data-aos-once="true">Quien soy?</h2>
         </div>
-        <div class="col-lg-4 about-card" data-aos="fade-up" data-aos-duration="1000">
+
+        <div class="col-10 descripcion-container">
+            <div class="descripcion">
+
+                <h5 class="mb-3">{{ about.title }} </h5>
+                <p class="mt-20">{{ about.info }}</p>
+            </div>
+        </div>
+
+
+        <div class="col-lg-4 about-card" data-aos="fade-left" data-aos-duration="1000">
             <div class="admin-icon-container" *ngIf="isAdmin">
                 <fa-icon [icon]="faPenToSquare" class="admin-icon edit-icon" routerLink="/editpersona/1"></fa-icon>
                 <!-- <fa-icon [icon]="faTrashCan" class="admin-icon delete-icon"></fa-icon> -->
@@ -32,42 +33,75 @@
             </ul>
 
         </div>
-        <div class="col-lg-4 about-card" data-aos="fade-left" data-aos-duration="1000">
+        <div class="col-lg-4 about-card" data-aos="fade-up" data-aos-duration="1000">
             <!-- <div class="admin-icon-container">
                 <fa-icon [icon]="faPenToSquare" class="admin-icon edit-icon"></fa-icon>
                 <fa-icon [icon]="faTrashCan" class="admin-icon delete-icon"></fa-icon>
             </div> -->
 
-            <h3 class="font-weight-light">Especialidades</h3>
+            <h3 class="font-weight-light">Formación</h3>
             <span class="line mb-5"></span>
 
             <div class="row ">
-                <div class="col-3 col-sm-1 faIcon text-danger pt-1"><fa-icon [icon]="faShop" class="icon-lg"></fa-icon></div>
-                <div class="col-9 col-sm-10  ml-auto mr-3 specialtxt" >
-                    <h6>E-commerce</h6>
-                    <p class="subtitle">Tienda SPA con o sin SEO</p>
+                <div class="" >
+                    <span>2022-</span>
+                    <div class="row">
+                        <h5>Argentina Programa</h5>
+                        <h6>Programación web full stack</h6>
+
+                    </div>
+                    <p class="subtitle">Java, POO, Springboot, Angular  </p>
                     <hr>
                 </div>
+                <div class="" >
+                    <span>2021-</span>
+                    <div class="row">
+                        <h5>Udemy</h5>
+                        <h6>React</h6>
+
+                    </div>
+                    <p class="subtitle">Context API, MERN, Hooks, Firestore, JWT, Redux, Autenticaciones, MUI, Routers, TypeScript, Formik, formularios dinámicos </p>
+                    <hr>
+                </div>
+              
+                <div class="" >
+                    <span>2020-</span>
+                    <div class="row">
+                        <h5>Digital House</h5>
+                        <h6>Programación web full stack</h6>
+
+                    </div>
+                    <p class="subtitle">HTML, CSS, JavaScript, node.js, Express, Git, GitHub, MySqL, Rest, MVC  </p>
+                    <hr>
+                </div>
+
             </div>
 
-            <div class="row">
-                <div class="col-3 col-sm-1 faIcon text-danger pt-1"><fa-icon [icon]="faIdCard" class="icon-lg"></fa-icon></div>
-                <div class="col-9 col-sm-10  ml-auto mr-3 specialtxt" >
-                    <h6>Portafolios y conexión profesional</h6>
-                    <p class="subtitle">Comparte tu CV de forma mas elegante!</p>
-                    <hr>
-                </div>
+ 
+        </div>
+        <div class="col-lg-4 about-card" data-aos="fade-right" data-aos-duration="1000">
+            <div class="admin-icon-container" *ngIf="isAdmin">
+                <fa-icon [icon]="faPenToSquare" class="admin-icon edit-icon" routerLink="/editabout/1"></fa-icon>
+                <!-- <fa-icon [icon]="faTrashCan" class="admin-icon delete-icon"></fa-icon> -->
             </div>
-
-            <div class="row" >
-                <div class="col-3 col-sm-1 faIcon text-danger pt-1"><fa-icon [icon]="faPager" class="icon-lg"></fa-icon></div>
-                <div class="col-9 col-sm-10  ml-auto mr-3 specialtxt" >
-                    <h6>Landing pages</h6>
-                    <p class="subtitle">Muestra la información de tus productos, y llegá a mas clientes!</p>
-                    <hr>
-                </div>
+            <h3 class="font-weight-light">Experiencia laboral</h3>
+            <span class="line mb-5"></span>
+            <div>
+                <span>2022-</span><h6>BlazerStore</h6>
+                <p>e-commerce al que me pidieron agregarle buscador y filtros, sistema de login y registro, modificar las cards de los items.
+                     </p>
+                <hr>
             </div>
-         
+            <div>
+                <span>2021-</span><h6>EcheStore</h6>
+                <p>e-commerce personal sobre ventas de skins de CS:GO, un videojuego de Valve, inspirado en la pagina Steam. Desarrollado con stack MERN </p>
+                <hr>
+            </div>
+            <div>
+                <span>2020-</span><h6>Universo Camping</h6>
+                <p>Proyecto integrador de Digital House, colaborativo entre 4 alumnos, creamos un e-commerce sobre ventas de camping. utilizando MySqL como base de datos, Node con express como backend y ejs como ORM para las vistas del front</p>
+                <hr>
+            </div>
         </div>
     </div>
 </section>
