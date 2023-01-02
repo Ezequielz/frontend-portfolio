@@ -1,0 +1,40 @@
+.add-skill-container{
+    height: 100vh;
+    background: radial-gradient(rgba(24, 26, 33, 0.5) 0%, #181a21 100%)  , url(https://www.enter.co/wp-content/uploads/2021/08/4884785-768x432.jpg) no-repeat , #121212;;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: white;
+}
+.skill{
+    padding: 50px;
+}
+
+.skill-box{
+justify-content: center;
+}
+
+.title-skill{
+    text-align: center;
+}
+
+.buttons-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.imagen{
+    text-align: center;
+    margin: 10px 0;
+
+}
+.imagen img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    /* border: 5px solid red; */
+    border-radius: 5px;
+    box-shadow: 10px 10px 15px black;
+}

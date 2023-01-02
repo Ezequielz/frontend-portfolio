@@ -30,6 +30,8 @@ import { NewSkillComponent } from './components/skills/new-skill.component';
 import { EditPersonaComponent } from './components/about/edit-persona.component';
 import { SafePipe } from './safe.pipe';
 import { EditContactComponent } from './components/contact/edit-contact.component';
+import { EditFormacionComponent } from './components/about/edit-formacion.component';
+import { NewFormacionComponent } from './components/about/new-formacion.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { EditContactComponent } from './components/contact/edit-contact.componen
     NewSkillComponent,
     EditPersonaComponent,
     SafePipe,
-    EditContactComponent
+    EditContactComponent,
+    EditFormacionComponent,
+    NewFormacionComponent
   ],
   imports: [
     BrowserModule,

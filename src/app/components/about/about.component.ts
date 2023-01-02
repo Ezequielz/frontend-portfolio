@@ -1,13 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Persona } from 'src/app/model/persona.model';
 
-import { faShop, faIdCard, faPager, faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faShop, faIdCard, faPager, faPenToSquare, faTrashCan ,faPlus} from '@fortawesome/free-solid-svg-icons';
 
 import { faGithub,faFacebookF, faWhatsapp, faLinkedinIn} from '@fortawesome/free-brands-svg-icons';
 import { PersonaService } from '../../services/persona.service';
 import { TokenService } from 'src/app/services/token.service';
 import { AboutService } from '../../services/about.service';
 import { About } from 'src/app/model/about';
+import { ExperienciaService } from 'src/app/services/experiencia.service';
+import { FormacionService } from '../../services/formacion.service';
+import { Experiencia } from 'src/app/model/experiencia';
+import { Formacion } from 'src/app/model/formacion';
+
+
+
 
 @Component({
   selector: 'app-about',
@@ -20,21 +27,30 @@ export class AboutComponent implements OnInit {
   faIdCard=faIdCard
   faPenToSquare=faPenToSquare
   faTrashCan=faTrashCan
+  faPlus=faPlus
 
   persona: Persona = null;
   about: About = null;
   
   constructor( public personaService: PersonaService,
     private tokenService: TokenService,
-    private aboutService :AboutService
+    private aboutService :AboutService,
+    private experienciaService :ExperienciaService,
+    private formacionService :FormacionService
     ) { }
 
   isLogged = false
   isAdmin = false
   asd = ''
+  experiencia: Experiencia[] = [];
+  formacion: Formacion[] = [];
+
   ngOnInit(): void {
     this.loadPersona();
     this.loadAbout();
+    this.loadExp();
+    this.loadFormacion();
+
     if(this.tokenService.getToken()){
       this.isLogged = true
 
@@ -58,6 +74,28 @@ export class AboutComponent implements OnInit {
     this.aboutService.detail(1).subscribe( data => {
       this.about = data
     })
+  }
+
+  loadExp(): void{
+    this.experienciaService.lista().subscribe( data => {
+      this.experiencia = data;
+    });
+  }
+  loadFormacion(): void{
+    this.formacionService.lista().subscribe( data => {
+      this.formacion = data;
+    });
+  }
+
+  delete( id: number ) {
+    if( id != undefined ){
+      this.formacionService.delete(id).subscribe( data => {
+        this.loadFormacion();
+        this.loadExp();
+      }, err => {
+        alert("no se pudo borrar")
+      });
+    }
   }
   
  

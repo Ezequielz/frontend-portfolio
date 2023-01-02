@@ -14,7 +14,26 @@
   display: flex;
   gap: 35px;
 }
+.add-icon{
+  position: absolute;
+  right: 10px;
+  padding: 1px;
 
+}
+
+.add-btn{
+  padding: 0;
+}
+.icon-container{
+ /* display: flex;
+ justify-content: right; */
+ position: absolute;
+ right: 50px;
+}
+.card-container{
+  background-color: #d3d7da4b;
+  padding: 10px;
+}
 .about-section {
     border-bottom: 1px solid #dee2e6;
     padding-top: 70px;
@@ -38,10 +57,14 @@
 .faIcon{
   text-align: center;
 }
+.fecha{
+  color: var(--red) ;
+  font-style: oblique;
+}
 @media (min-width: 991px) {
 
     .about-section .about-card {
-        padding: 60px ;
+        padding: 40px ;
         border-right: 1px solid #dee2e6;
       }
       .specialtxt{

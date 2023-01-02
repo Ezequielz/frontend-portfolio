@@ -1,106 +1,174 @@
 
 <section id="about" class="container-fluid">
-    <div  class="row about-section" *ngIf="about">
+    <div  class="container  about-section" *ngIf="about">
         <div class="position-relative d-flex align-items-center justify-content-center col-12">
             <h2 class="display-1 text-uppercase text-white title-section" style="-webkit-text-stroke: 1px #dee2e6;" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true">Sobre Mi</h2>
             <h2 class="display-2  position-absolute text-uppercase text-primary subtitle-section" data-aos="fade-left" data-aos-duration="1000" data-aos-once="true">Quien soy?</h2>
+ 
+            <button class="btn btn-primary add-icon" type="button" routerLink="/editabout/1" *ngIf="isAdmin">
+                <fa-icon [icon]="faPenToSquare" class="admin-icon "></fa-icon>
+            </button>
         </div>
 
         <div class="col-10 descripcion-container">
             <div class="descripcion">
-
+                
                 <h5 class="mb-3">{{ about.title }} </h5>
                 <p class="mt-20">{{ about.info }}</p>
             </div>
         </div>
 
 
-        <div class="col-lg-4 about-card" data-aos="fade-left" data-aos-duration="1000">
-            <div class="admin-icon-container" *ngIf="isAdmin">
-                <fa-icon [icon]="faPenToSquare" class="admin-icon edit-icon" routerLink="/editpersona/1"></fa-icon>
-                <!-- <fa-icon [icon]="faTrashCan" class="admin-icon delete-icon"></fa-icon> -->
+        <div class="row">
+                <!-- INFO PERSONAL -->
+            <div class="col-lg-4 about-card" data-aos="fade-left" data-aos-duration="1000">
+                <div class="admin-icon-container" *ngIf="isAdmin">
+                    <fa-icon [icon]="faPenToSquare" class="admin-icon edit-icon" routerLink="/editpersona/1"></fa-icon>
+                    <!-- <fa-icon [icon]="faTrashCan" class="admin-icon delete-icon"></fa-icon> -->
+                </div>
+    
+                <h3 class="font-weight-light">Información personal</h3>
+                <span class="line mb-5"></span>
+                <ul class="mt40 info list-unstyled" *ngIf="persona">
+                    <li><span>Nombre</span>: {{persona.nombre}} </li>
+                    <li><span>Apellido</span>: {{ persona.apellido }} </li>
+                    <li><span>Nacimiento</span> : {{ persona.nacimiento }} </li>
+                    <li><span>Nacionalidad</span> {{persona.nacionalidad}} </li>
+                    <li><span>Domicilio</span> : {{persona.domicilio}} </li>
+                    {{asd}}
+                </ul>
+    
             </div>
+                <!-- FORMACION -->
+            <div class="col-lg-4 about-card" data-aos="fade-up" data-aos-duration="1000">
 
-            <h3 class="font-weight-light">Información personal</h3>
-            <span class="line mb-5"></span>
-            <ul class="mt40 info list-unstyled" *ngIf="persona">
-                <li><span>Nombre</span>: {{persona.nombre}} </li>
-                <li><span>Apellido</span>: {{ persona.apellido }} </li>
-                <li><span>Nacimiento</span> : {{ persona.nacimiento }} </li>
-                <li><span>Nacionalidad</span> {{persona.nacionalidad}} </li>
-                <li><span>Domicilio</span> : {{persona.domicilio}} </li>
-                {{asd}}
-            </ul>
+                <div class="add-icon">
 
-        </div>
-        <div class="col-lg-4 about-card" data-aos="fade-up" data-aos-duration="1000">
-            <!-- <div class="admin-icon-container">
-                <fa-icon [icon]="faPenToSquare" class="admin-icon edit-icon"></fa-icon>
-                <fa-icon [icon]="faTrashCan" class="admin-icon delete-icon"></fa-icon>
-            </div> -->
-
-            <h3 class="font-weight-light">Formación</h3>
-            <span class="line mb-5"></span>
-
-            <div class="row ">
-                <div class="" >
-                    <span>2022-</span>
-                    <div class="row">
-                        <h5>Argentina Programa</h5>
-                        <h6>Programación web full stack</h6>
-
-                    </div>
-                    <p class="subtitle">Java, POO, Springboot, Angular  </p>
-                    <hr>
+                    <button class="btn btn-danger add-btn" type="button"  routerLink="/newformacion" *ngIf="isAdmin" >
+                        <fa-icon [icon]="faPlus" class=" admin-icon "></fa-icon>
+                    </button>
                 </div>
-                <div class="" >
-                    <span>2021-</span>
-                    <div class="row">
-                        <h5>Udemy</h5>
-                        <h6>React</h6>
+    
+                <h3 class="font-weight-light">Formación</h3>
+                <span class="line mb-5"></span>
+    
+                <div class="row ">
 
-                    </div>
-                    <p class="subtitle">Context API, MERN, Hooks, Firestore, JWT, Redux, Autenticaciones, MUI, Routers, TypeScript, Formik, formularios dinámicos </p>
-                    <hr>
-                </div>
+  
+                    <div class="" *ngFor="let forma of formacion">
+
+                        <div class="card-container">
+                            <div class="icon-container " *ngIf="isAdmin">
               
-                <div class="" >
-                    <span>2020-</span>
-                    <div class="row">
-                        <h5>Digital House</h5>
-                        <h6>Programación web full stack</h6>
+                                <fa-icon 
+                                    routerLink="/editformacion/{{forma.id}}"
+                                    [icon]="faPenToSquare" 
+                                    class="admin-icon edit-icon"
+                                >
+                                </fa-icon>
+                
+                                <fa-icon 
+                                    (click)="delete(forma.id)"
+                                    [icon]="faTrashCan" 
+                                    class="admin-icon delete-icon"
+                                >
+                                </fa-icon>
+                
+                            </div>
 
+                            <span class="fecha">  {{ forma.fecha }} - </span>
+                            <div class="">
+                                <h5>{{forma.title}}</h5>
+                                <h6>{{forma.subtitle}}</h6>
+        
+                            </div>
+                            <p class="subtitle">{{forma.info}}  </p>
+                        </div>
+                        <hr>
                     </div>
-                    <p class="subtitle">HTML, CSS, JavaScript, node.js, Express, Git, GitHub, MySqL, Rest, MVC  </p>
+                    <!-- <div class="" >
+                        <span>2021-</span>
+                        <div class="row">
+                            <h5>Udemy</h5>
+                            <h6>React</h6>
+    
+                        </div>
+                        <p class="subtitle">Context API, MERN, Hooks, Firestore, JWT, Redux, Autenticaciones, MUI, Routers, TypeScript, Formik, formularios dinámicos </p>
+                        <hr>
+                    </div>
+                  
+                    <div class="" >
+                        <span>2020-</span>
+                        <div class="row">
+                            <h5>Digital House</h5>
+                            <h6>Programación web full stack</h6>
+    
+                        </div>
+                        <p class="subtitle">HTML, CSS, JavaScript, node.js, Express, Git, GitHub, MySqL, Rest, MVC  </p>
+                        <hr>
+                    </div> -->
+    
+                </div>
+    
+     
+            </div>
+                <!-- EXPERIENCIA -->
+            <div class="col-lg-4 about-card" data-aos="fade-right" data-aos-duration="1000">
+
+                <div class="add-icon">
+
+                    <button class="btn btn-danger add-btn" type="button" routerLink="/newskill" *ngIf="isAdmin" >
+                        <fa-icon [icon]="faPlus" class=" admin-icon "></fa-icon>
+                    </button>
+                </div>
+    
+                <h3 class="font-weight-light">Experiencia laboral</h3>
+                <span class="line mb-5"></span>
+
+                <div *ngFor="let exp of experiencia">
+                    <div class="card-container">
+
+                        <div class="icon-container " *ngIf="isAdmin">
+                  
+                            <fa-icon 
+                         
+                                [icon]="faPenToSquare" 
+                                class="admin-icon edit-icon"
+                            >
+                            </fa-icon>
+            
+                            <fa-icon 
+                            
+                                [icon]="faTrashCan" 
+                                class="admin-icon delete-icon"
+                            >
+                            </fa-icon>
+            
+                        </div>
+                        <span class="fecha"> {{ exp.fecha }} - </span><h6>{{exp.title}}</h6>
+                        <p>{{exp.info}}</p>
+                    </div>
                     <hr>
                 </div>
 
-            </div>
 
- 
-        </div>
-        <div class="col-lg-4 about-card" data-aos="fade-right" data-aos-duration="1000">
-            <div class="admin-icon-container" *ngIf="isAdmin">
-                <fa-icon [icon]="faPenToSquare" class="admin-icon edit-icon" routerLink="/editabout/1"></fa-icon>
-                <!-- <fa-icon [icon]="faTrashCan" class="admin-icon delete-icon"></fa-icon> -->
-            </div>
-            <h3 class="font-weight-light">Experiencia laboral</h3>
-            <span class="line mb-5"></span>
-            <div>
-                <span>2022-</span><h6>BlazerStore</h6>
-                <p>e-commerce al que me pidieron agregarle buscador y filtros, sistema de login y registro, modificar las cards de los items.
-                     </p>
-                <hr>
-            </div>
-            <div>
-                <span>2021-</span><h6>EcheStore</h6>
-                <p>e-commerce personal sobre ventas de skins de CS:GO, un videojuego de Valve, inspirado en la pagina Steam. Desarrollado con stack MERN </p>
-                <hr>
-            </div>
-            <div>
-                <span>2020-</span><h6>Universo Camping</h6>
-                <p>Proyecto integrador de Digital House, colaborativo entre 4 alumnos, creamos un e-commerce sobre ventas de camping. utilizando MySqL como base de datos, Node con express como backend y ejs como ORM para las vistas del front</p>
-                <hr>
+                <!-- <div>
+                    <span>2022-</span><h6>BlazerStore</h6>
+                    <p>e-commerce al que me pidieron agregarle buscador y filtros, sistema de login y registro, modificar las cards de los items.
+                         </p>
+                    <hr>
+                </div>
+                <div>
+                    <span>2021-</span><h6>EcheStore</h6>
+                    <p>e-commerce personal sobre ventas de skins de CS:GO, un videojuego de Valve, inspirado en la pagina Steam. Desarrollado con stack MERN </p>
+                    <hr>
+                </div>
+                <div>
+                    <span>2020-</span><h6>Universo Camping</h6>
+                    <p>Proyecto integrador de Digital House, colaborativo entre 4 alumnos, creamos un e-commerce sobre ventas de camping. utilizando MySqL como base de datos, Node con express como backend y ejs como ORM para las vistas del front</p>
+                    <hr>
+                </div> -->
+
             </div>
         </div>
     </div>
