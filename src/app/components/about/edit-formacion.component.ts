@@ -14,7 +14,7 @@ export class EditFormacionComponent implements OnInit {
 
   constructor(private formacionService: FormacionService ,
     private activatedRouter: ActivatedRoute,
-    private router: Router  ,) { }
+    private router: Router ) { }
 
   ngOnInit(): void {
     const id = this.activatedRouter.snapshot.params['id'];

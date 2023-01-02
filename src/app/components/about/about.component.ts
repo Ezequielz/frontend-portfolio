@@ -78,22 +78,33 @@ export class AboutComponent implements OnInit {
 
   loadExp(): void{
     this.experienciaService.lista().subscribe( data => {
+      data.sort((a,b) => (a.id < b.id) ? 1 : ((b.id < a.id) ? -1 : 0))
       this.experiencia = data;
     });
   }
   loadFormacion(): void{
     this.formacionService.lista().subscribe( data => {
+
+      data.sort((a,b) => (a.id < b.id) ? 1 : ((b.id < a.id) ? -1 : 0))
       this.formacion = data;
     });
   }
 
-  delete( id: number ) {
+  deleteFormacion( id: number ) {
     if( id != undefined ){
       this.formacionService.delete(id).subscribe( data => {
         this.loadFormacion();
+      }, err => {
+        alert("no se pudo borrar la formacion")
+      });
+    }
+  }
+  deleteExperiencia( id: number ) {
+    if( id != undefined ){
+      this.experienciaService.delete(id).subscribe( data => {
         this.loadExp();
       }, err => {
-        alert("no se pudo borrar")
+        alert("no se pudo borrar la experiencia")
       });
     }
   }

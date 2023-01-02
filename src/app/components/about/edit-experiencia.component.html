@@ -1,0 +1,42 @@
+<div class=" add-project-container" *ngIf="experiencia">
+    <div class="container project">
+        <h1 class="title-project">Actualizar Experiencia</h1>
+
+        <div class="row project-box">
+            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm" class="col-12 col-sm-8 col-lg-5">
+
+
+                <div class="form-group">
+    
+                    <label for="fecha">Fecha</label>
+                    <input type="text" class="form-control" id="fecha" name="fecha" [(ngModel)]="experiencia.fecha" required>
+                    
+                    <label for="title">Titulo</label>
+                    <input type="text" class="form-control" id="title" name="title" [(ngModel)]="experiencia.title" required>
+
+                    <label for="info">Información</label>
+                    <input type="text" class="form-control" id="info" name="info" [(ngModel)]="experiencia.info" required>
+                    
+                 
+                    
+                </div>
+
+                <div class="buttons-container">
+                    <button class="btn btn-danger mt-3 align-items-center" routerLink="">
+                        Volver
+                    </button>
+
+                    <button 
+                        class="btn btn-danger mt-3 align-items-center" 
+                        
+                        >
+                        Actualizar
+                    </button>
+    
+                </div>
+   
+            </form>        
+        </div>
+    </div>
+</div>
+

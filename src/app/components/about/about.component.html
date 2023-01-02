@@ -68,7 +68,7 @@
                                 </fa-icon>
                 
                                 <fa-icon 
-                                    (click)="delete(forma.id)"
+                                    (click)="deleteFormacion(forma.id)"
                                     [icon]="faTrashCan" 
                                     class="admin-icon delete-icon"
                                 >
@@ -86,27 +86,7 @@
                         </div>
                         <hr>
                     </div>
-                    <!-- <div class="" >
-                        <span>2021-</span>
-                        <div class="row">
-                            <h5>Udemy</h5>
-                            <h6>React</h6>
-    
-                        </div>
-                        <p class="subtitle">Context API, MERN, Hooks, Firestore, JWT, Redux, Autenticaciones, MUI, Routers, TypeScript, Formik, formularios dinámicos </p>
-                        <hr>
-                    </div>
-                  
-                    <div class="" >
-                        <span>2020-</span>
-                        <div class="row">
-                            <h5>Digital House</h5>
-                            <h6>Programación web full stack</h6>
-    
-                        </div>
-                        <p class="subtitle">HTML, CSS, JavaScript, node.js, Express, Git, GitHub, MySqL, Rest, MVC  </p>
-                        <hr>
-                    </div> -->
+
     
                 </div>
     
@@ -117,7 +97,7 @@
 
                 <div class="add-icon">
 
-                    <button class="btn btn-danger add-btn" type="button" routerLink="/newskill" *ngIf="isAdmin" >
+                    <button class="btn btn-danger add-btn" type="button" routerLink="/newexperiencia" *ngIf="isAdmin" >
                         <fa-icon [icon]="faPlus" class=" admin-icon "></fa-icon>
                     </button>
                 </div>
@@ -131,14 +111,14 @@
                         <div class="icon-container " *ngIf="isAdmin">
                   
                             <fa-icon 
-                         
+                                routerLink="/editexperiencia/{{exp.id}}"
                                 [icon]="faPenToSquare" 
                                 class="admin-icon edit-icon"
                             >
                             </fa-icon>
             
                             <fa-icon 
-                            
+                                (click)="deleteExperiencia(exp.id)"
                                 [icon]="faTrashCan" 
                                 class="admin-icon delete-icon"
                             >
@@ -151,23 +131,6 @@
                     <hr>
                 </div>
 
-
-                <!-- <div>
-                    <span>2022-</span><h6>BlazerStore</h6>
-                    <p>e-commerce al que me pidieron agregarle buscador y filtros, sistema de login y registro, modificar las cards de los items.
-                         </p>
-                    <hr>
-                </div>
-                <div>
-                    <span>2021-</span><h6>EcheStore</h6>
-                    <p>e-commerce personal sobre ventas de skins de CS:GO, un videojuego de Valve, inspirado en la pagina Steam. Desarrollado con stack MERN </p>
-                    <hr>
-                </div>
-                <div>
-                    <span>2020-</span><h6>Universo Camping</h6>
-                    <p>Proyecto integrador de Digital House, colaborativo entre 4 alumnos, creamos un e-commerce sobre ventas de camping. utilizando MySqL como base de datos, Node con express como backend y ejs como ORM para las vistas del front</p>
-                    <hr>
-                </div> -->
 
             </div>
         </div>
