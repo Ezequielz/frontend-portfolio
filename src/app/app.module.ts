@@ -32,6 +32,8 @@ import { SafePipe } from './safe.pipe';
 import { EditContactComponent } from './components/contact/edit-contact.component';
 import { EditFormacionComponent } from './components/about/edit-formacion.component';
 import { NewFormacionComponent } from './components/about/new-formacion.component';
+import { NewExperienciaComponent } from './components/about/new-experiencia.component';
+import { EditExperienciaComponent } from './components/about/edit-experiencia.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { NewFormacionComponent } from './components/about/new-formacion.componen
     SafePipe,
     EditContactComponent,
     EditFormacionComponent,
-    NewFormacionComponent
+    NewFormacionComponent,
+    NewExperienciaComponent,
+    EditExperienciaComponent
   ],
   imports: [
     BrowserModule,

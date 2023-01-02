@@ -13,6 +13,8 @@ import { NewSkillComponent } from './components/skills/new-skill.component';
 import { AuthGuard } from './services/guards/auth.guard';
 import { EditFormacionComponent } from './components/about/edit-formacion.component';
 import { NewFormacionComponent } from './components/about/new-formacion.component';
+import { NewExperienciaComponent } from './components/about/new-experiencia.component';
+import { EditExperienciaComponent } from './components/about/edit-experiencia.component';
 
 
 const routes: Routes = [
@@ -64,6 +66,18 @@ const routes: Routes = [
     {
         path: 'editformacion/:id',
         component: EditFormacionComponent,
+        canLoad: [AuthGuard],
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'newexperiencia',
+        component: NewExperienciaComponent,
+        canLoad: [AuthGuard],
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'editexperiencia/:id',
+        component: EditExperienciaComponent,
         canLoad: [AuthGuard],
         canActivate: [AuthGuard]
     },
