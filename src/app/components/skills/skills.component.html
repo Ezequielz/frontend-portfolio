@@ -1,6 +1,6 @@
 <section class="section mt-5 skills" id="skills">
 
-    <div class="container skill-container">
+    <div class="container skill-container" *ngIf="skill.length > 1">
         <div class="position-relative d-flex align-items-center justify-content-center col-12">
             <h2 class="display-1 text-uppercase text-white title-section" style="-webkit-text-stroke: 1px #dee2e6;" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true">Habilidades</h2>
             <h2 class="display-2  position-absolute text-uppercase text-primary subtitle-section" data-aos="fade-left" data-aos-duration="1000" data-aos-once="true">Mis Habilidades</h2>
@@ -11,7 +11,7 @@
 
         <div class="row justify-content-center">
 
-            <div class="col-4 col-md-3 col-lg-2 circle-container" *ngFor="let skill of skill" data-aos="zoom-in-left" data-aos-duration="1000" data-aos-once="true">
+            <div class="col-6 col-sm-4  col-md-3 col-lg-2 circle-container" *ngFor="let skill of skill" data-aos="zoom-in-left" data-aos-duration="1000" data-aos-once="true">
                 <div class="icon-container " *ngIf="isAdmin">
               
                     <fa-icon 
