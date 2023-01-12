@@ -12,6 +12,7 @@ import { ExperienciaService } from 'src/app/services/experiencia.service';
 import { FormacionService } from '../../services/formacion.service';
 import { Experiencia } from 'src/app/model/experiencia';
 import { Formacion } from 'src/app/model/formacion';
+import Swal from 'sweetalert2';
 
 
 
@@ -91,21 +92,96 @@ export class AboutComponent implements OnInit {
   }
 
   deleteFormacion( id: number ) {
-    if( id != undefined ){
-      this.formacionService.delete(id).subscribe( data => {
-        this.loadFormacion();
-      }, err => {
-        alert("no se pudo borrar la formacion")
-      });
+
+  if( id != undefined ){
+
+          Swal.fire({
+            title: 'Estas seguro?',
+            text: "Mo podrás revertir esto",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si,Borrar!',
+            cancelButtonText: 'Cancelar'
+          }).then((result) => {
+
+            if (result.isConfirmed) {
+              Swal.fire({
+                
+                title: 'Borrando formacion',
+                text: 'Espere...',
+                showConfirmButton: false
+              })
+              this.formacionService.delete(id).subscribe( data => {
+                Swal.fire({
+                  icon: 'success',
+                  title: 'Formacion Borrada',
+                  timer: 1500,
+                  showConfirmButton: false
+                })
+                this.loadFormacion();
+              }, err => {
+                Swal.fire({
+   
+                  icon: 'error',
+                  title: 'no se pudo borrar la formacion',
+                  showConfirmButton: false,
+                  timer: 2500
+                })
+              });
+
+            }
+          })
     }
   }
   deleteExperiencia( id: number ) {
     if( id != undefined ){
-      this.experienciaService.delete(id).subscribe( data => {
-        this.loadExp();
-      }, err => {
-        alert("no se pudo borrar la experiencia")
-      });
+
+
+      Swal.fire({
+        title: 'Estas seguro?',
+        text: "Mo podrás revertir esto",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si,Borrar!',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+
+        if (result.isConfirmed) {
+          Swal.fire({
+            
+            title: 'Borrando experiencia',
+            text: 'Espere...',
+            showConfirmButton: false
+          })
+          this.experienciaService.delete(id).subscribe( data => {
+            Swal.fire({
+              icon: 'success',
+              title: 'Experiencia Borrada',
+              timer: 1500,
+              showConfirmButton: false
+            })
+            this.loadExp();
+          }, err => {
+
+            Swal.fire({
+   
+              icon: 'error',
+              title: 'no se pudo borrar la experiencia',
+              showConfirmButton: false,
+              timer: 2500
+            })
+          
+          });
+
+        }
+      })
+
+
+
     }
   }
   

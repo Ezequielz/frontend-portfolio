@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { About } from 'src/app/model/about';
 import { AboutService } from 'src/app/services/about.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -33,14 +34,32 @@ ngOnInit(): void {
 
 onUpdate(){
 
+  Swal.fire({
+    title: 'Editando About',
+    text: 'Espere...',
+    showConfirmButton: false,
+  })
+
   const id = this.activatedRouter.snapshot.params['id'];
      
   this.aboutService.update( id, this.about ).subscribe( data => {
+
+    Swal.fire({
+      icon: 'success',
+      title: 'About Editado',
+      timer: 1500,
+      showConfirmButton: false
+    })
     
     this.router.navigate(['']);
   },err =>{
     
-    alert("Error al modificar la about");
+    Swal.fire({
+      icon: 'error',
+      title: 'Error al modificar about',
+      timer: 1500,
+      showConfirmButton: false
+    })
     this.router.navigate(['']);
   });
 }

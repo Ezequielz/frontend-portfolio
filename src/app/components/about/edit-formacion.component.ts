@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Formacion } from 'src/app/model/formacion';
 import { FormacionService } from 'src/app/services/formacion.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-formacion',
@@ -28,14 +29,37 @@ export class EditFormacionComponent implements OnInit {
   }
 
   onUpdate(): void{
+
+
+    Swal.fire({
+      title: 'Editando Formacion',
+      text: 'Espere...',
+      showConfirmButton: false,
+    })
+
     const id = this.activatedRouter.snapshot.params['id'];
 
+
     this.formacionService.update( id, this.formacion ).subscribe( data => {
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Formacion Editada',
+        timer: 1500,
+        showConfirmButton: false
+      })
       
       this.router.navigate(['']);
     },err =>{
+
+      Swal.fire({
+        icon: 'error',
+        title: 'Error al modificar la formacion',
+        timer: 1500,
+        showConfirmButton: false
+      })
       
-      alert("Error al modificar la formacion");
+
       this.router.navigate(['']);
     });
 

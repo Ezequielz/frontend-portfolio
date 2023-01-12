@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Formacion } from 'src/app/model/formacion';
 import { FormacionService } from '../../services/formacion.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-new-formacion',
@@ -23,14 +24,43 @@ export class NewFormacionComponent implements OnInit {
   onCreate(){
     const formacion = new Formacion( this.fecha, this.title, this.subtitle,this.info );
 
+     
+    Swal.fire({
+      title: 'Creando Formacion',
+      text: 'Espere...',
+      showConfirmButton: false,
+    })
+
+
   
     this.formacionService.save( formacion ).subscribe( data => {
-      
-      alert("Formacion creada correctamente");
 
-      this.router.navigate(['']);
+
+      Swal.fire({
+        title: 'Formacion creada correctamente',
+        text: "Quieres agregar otra?",
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Agregar'
+      }).then((result) => {
+        if (!result.isConfirmed) {
+          this.router.navigate(['']);
+        }
+      })
+
+
+   
     }, err =>{
-      alert("error al añadir formacion");
+
+      Swal.fire({
+   
+        icon: 'error',
+        title: 'error al agregar formacion',
+        showConfirmButton: false,
+        timer: 2500
+      })
+
       this.router.navigate(['']);
     });
   }
