@@ -5,6 +5,7 @@ import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { faPenToSquare, faTrashCan, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { TokenService } from '../../services/token.service';
 import { Project } from 'src/app/model/project';
+import Swal from 'sweetalert2';
 
 
 
@@ -49,14 +50,48 @@ export class ProjectsComponent implements OnInit {
 
   delete(id?: number){
     if(id != undefined){
-     
-      this.projectsService.delete(id).subscribe(
-        data => {
-          this.loadProjects();
-        }, err => {
-          alert("No se pudo borrar la experiencia");
+
+
+      Swal.fire({
+        title: 'Estas seguro?',
+        text: "Mo podrás revertir esto",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si,Borrar!',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+
+        if (result.isConfirmed) {
+          Swal.fire({
+            
+            title: 'Borrando proyecto',
+            text: 'Espere...',
+            showConfirmButton: false
+          })
+          this.projectsService.delete(id).subscribe( data => {
+            Swal.fire({
+              icon: 'success',
+              title: 'Proyecto Borrado',
+              timer: 1500,
+              showConfirmButton: false
+            })
+            this.loadProjects();
+          }, err => {
+            Swal.fire({
+
+              icon: 'error',
+              title: 'no se pudo borrar el proyecto',
+              showConfirmButton: false,
+              timer: 2500
+            })
+          });
+
         }
-      )
+      })
+     
+
     }
   }
 

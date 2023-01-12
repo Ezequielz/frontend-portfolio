@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Project } from 'src/app/model/project';
 import { ImageService } from 'src/app/services/image.service';
+import Swal from 'sweetalert2';
 import { ProjectsService } from '../../services/projects.service';
 
 @Component({
@@ -16,6 +17,7 @@ export class NewProjectComponent implements OnInit {
   img: string = '';
   giturl: string = '';
   weburl: string = '';
+  saveImage: boolean = false;
 
   constructor( private projectsService: ProjectsService,
     private activatedRouter: ActivatedRoute,
@@ -30,22 +32,48 @@ export class NewProjectComponent implements OnInit {
 
     const project = new Project(this.title, this.descripcion, this.img, this.giturl, this.weburl);
 
+    Swal.fire({
+      title: 'Creando Proyecto',
+      text: 'Espere...',
+      showConfirmButton: false,
+    })
+
     project.img = this.imgService.url
 
     
     this.projectsService.save( project ).subscribe( data =>{
-      alert("projecto añadido");
-      this.imgService.cleanUrl();
-      this.router.navigate(['']);
+      
+      Swal.fire({
+        title: 'Proyecto creado correctamente',
+        text: "Quieres agregar otro?",
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Agregar'
+      }).then((result) => {
+        this.imgService.cleanUrl();
+        if (!result.isConfirmed) {
+          this.router.navigate(['']);
+        }
+      })
     }, err =>{
-      alert("fallo");
+      Swal.fire({
+   
+        icon: 'error',
+        title: 'error al agregar proyecto',
+        showConfirmButton: false,
+        timer: 2500
+      })
       this.router.navigate(['']);
     });
   }
 
   uploadImage($event: any){
-   
+    this.saveImage = true
     const name = "project_" 
-    this.imgService.uploadImage( $event, name  );
+    this.imgService.uploadImage( $event, name  ).then(r =>{
+
+      this.saveImage = false
+    });
   }
 }

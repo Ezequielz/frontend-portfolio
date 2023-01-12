@@ -53,14 +53,7 @@
                     </button>
 
                     <button 
-                    *ngIf="!imgService.url"
-                    disabled
-                    class="btn btn-danger mt-3 align-items-center" 
-                    >
-                        Actualizar
-                    </button>
-                    <button 
-                    *ngIf="imgService.url"
+                    [disabled]="saveImage"  
                     class="btn btn-danger mt-3 align-items-center" 
                     >
                         Actualizar

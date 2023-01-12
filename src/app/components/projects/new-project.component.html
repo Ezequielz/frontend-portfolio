@@ -36,6 +36,7 @@
                         type="file" 
                         class="form-control" 
                         id="img" name="img" 
+                        [(ngModel)]="img"
                         required
                     >
 
@@ -52,16 +53,9 @@
                     <button class="btn btn-danger mt-3 align-items-center" routerLink="">
                         Volver
                     </button>
-
+                  
                     <button 
-                    *ngIf="!imgService.url"
-                    disabled
-                    class="btn btn-danger mt-3 align-items-center" >
-                        Agregar Proyecto
-                    </button>
-
-                    <button 
-                    *ngIf="imgService.url"
+                    [disabled]="saveImage || !img"
                    
                     class="btn btn-danger mt-3 align-items-center" >
                         Agregar Proyecto
