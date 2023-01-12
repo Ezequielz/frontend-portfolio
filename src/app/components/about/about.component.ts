@@ -135,6 +135,8 @@ export class AboutComponent implements OnInit {
           })
     }
   }
+
+  
   deleteExperiencia( id: number ) {
     if( id != undefined ){
 

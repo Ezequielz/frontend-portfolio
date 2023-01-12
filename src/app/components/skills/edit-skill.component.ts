@@ -3,6 +3,7 @@ import { Skill } from 'src/app/model/skill';
 import { SkillService } from '../../services/skill.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ImageService } from 'src/app/services/image.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-skill',
@@ -12,6 +13,7 @@ import { ImageService } from 'src/app/services/image.service';
 export class EditSkillComponent implements OnInit {
 
   skill: Skill = null;
+  saveImage: boolean = false;
 
   constructor( private skillService: SkillService,
      private activatedRoute: ActivatedRoute,
@@ -31,22 +33,53 @@ export class EditSkillComponent implements OnInit {
   }
 
   onUpdate(){
+
+    Swal.fire({
+      title: 'Editando Skill',
+      text: 'Espere...',
+      showConfirmButton: false,
+    })
+
+
     const id = this.activatedRoute.snapshot.params['id'];
 
-    this.skill.img = this.imgService.url
+
+    if (this.imgService.url){
+
+      this.skill.img = this.imgService.url
+    }
+
+
+
     this.skillService.update(id, this.skill).subscribe( data => {
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Skill Editado',
+        timer: 1500,
+        showConfirmButton: false
+      })
       this.router.navigate(['']);
 
     }, err =>{
-      alert('error al modificar la skill')
+      Swal.fire({
+        icon: 'error',
+        title: 'Error al modificar skill',
+        timer: 1500,
+        showConfirmButton: false
+      })
       this.router.navigate(['']);
     });
   }
 
   uploadImage($event : any){
+    this.saveImage = true
     const id = this.activatedRoute.snapshot.params['id'];
    
     const name = "project_" + id
-    this.imgService.uploadImage( $event, name );
+    this.imgService.uploadImage( $event, name ).then(r =>{
+
+      this.saveImage = false
+    });
   }
 }
