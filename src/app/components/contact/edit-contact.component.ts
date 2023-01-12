@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Contact } from 'src/app/model/contact';
 import { ContactService } from 'src/app/services/contact.service';
 import { ImageService } from 'src/app/services/image.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-contact',
@@ -12,6 +13,7 @@ import { ImageService } from 'src/app/services/image.service';
 export class EditContactComponent implements OnInit {
 
   contact: Contact = null;
+  savePDF: boolean = false;
 
   constructor(private contactService: ContactService,
      private router: Router,
@@ -35,24 +37,44 @@ export class EditContactComponent implements OnInit {
 
   onUpdate(){
 
+    Swal.fire({
+      title: 'Editando Contacto',
+      text: 'Espere...',
+      showConfirmButton: false,
+    })
+
     if(this.imgService.url){
 
       this.contact.cv = this.imgService.url
     }
 
     this.contactService.update( 1, this.contact ).subscribe( data => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Contacto Editado',
+        timer: 1500,
+        showConfirmButton: false
+      })
       this.router.navigate(['']);
     },err =>{
-      alert("Error al modificar contacto");
+      Swal.fire({
+        icon: 'error',
+        title: 'Error al modificar contacto',
+        timer: 1500,
+        showConfirmButton: false
+      })
       this.router.navigate(['']);
     });
     
   }
 
   uploadImage($event: any){
-
+    this.savePDF = true
     const name = "contact_" + 1
-    this.imgService.uploadImage( $event, name );
+    this.imgService.uploadImage( $event, name ).then(r =>{
+
+      this.savePDF = false
+    });
 
   }
 
