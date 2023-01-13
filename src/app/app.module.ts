@@ -67,6 +67,7 @@ import { EditExperienciaComponent } from './components/about/edit-experiencia.co
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    ReactiveFormsModule,
     NgCircleProgressModule.forRoot({}),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideStorage(() => getStorage())

@@ -19,6 +19,7 @@ export class InterceptorService {
                 headers: req.headers.set('Authorization', 'Bearer' + token )
             });
         }
+       
         return next.handle(intReq);
     }
 }
