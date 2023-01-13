@@ -3,7 +3,7 @@
         <h1 class="title-project">Actualizar Persona</h1>
 
         <div class="row project-box">
-            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm" class="col-12 col-sm-8 col-lg-5">
+            <form [formGroup]="form" (ngSubmit)="onUpdate($event)" novalidate #f="ngForm" class="col-12 col-sm-8 col-lg-5">
                 <div class="imagen" *ngIf="imgService.url">
                     <img [src]="imgService.url" alt="" width="200px">
 
@@ -15,29 +15,82 @@
                 <div class="form-group">
     
                     <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="persona.nombre" required>
+                    <input 
+                    formControlName="nombre"
+                    [ngClass]="{'is-invalid': Nombre?.errors && Nombre?.touched, 'is-valid': !Nombre?.errors && Nombre?.touched}"
+                   
+                    type="text" class="form-control" id="nombre" name="nombre" [(value)]="form.value.nombre" required>
+                    <div *ngIf="Nombre?.errors && Nombre?.touched">
+                        <p *ngIf="Nombre?.hasError('required')" class="text-danger">
+                            el nombre es requerido
+                        </p>
+                    </div>
                     
                     <label for="apellido">Apellido</label>
-                    <input type="text" class="form-control" id="apellido" name="apellido" [(ngModel)]="persona.apellido" required>
+                    <input 
+                    formControlName="apellido"
+                    [ngClass]="{'is-invalid': Apellido?.errors && Apellido?.touched, 'is-valid': !Apellido?.errors && Apellido?.touched}"
+                   
+                    type="text" class="form-control" id="apellido" name="apellido" [(value)]="form.value.apellido" required>
+                    <div *ngIf="Apellido?.errors && Apellido?.touched">
+                        <p *ngIf="Apellido?.hasError('required')" class="text-danger">
+                            el apellido es requerido
+                        </p>
+                    </div>
                     
                     <label for="img">Imagen</label>
                     <input 
+                    formControlName="img"
+                    [ngClass]="{'is-invalid': Img?.errors && Img?.touched, 'is-valid': !Img?.errors && Img?.touched}"
+                   
                         (change)="uploadImage($event)"
                         accept=".jpg, .jpeg, .png"
                         type="file" class="form-control" id="img" 
-                        name="img" [(ngModel)]="persona.img" 
+                        name="img" [(value)]="form.value.img"
                         required
                     >
+                    <div *ngIf="Img?.errors && Img?.touched">
+                        <p *ngIf="Img?.hasError('required')" class="text-danger">
+                            la imagen es requerida
+                        </p>
+                    </div>
                     
                     <label for="nacionalidad">Nacionalidad</label>
-                    <input type="text" class="form-control" id="nacionalidad" name="nacionalidad" [(ngModel)]="persona.nacionalidad" required>
+                    <input 
+                    formControlName="nacionalidad"
+                    [ngClass]="{'is-invalid': Nacionalidad?.errors && Nacionalidad?.touched, 'is-valid': !Nacionalidad?.errors && Nacionalidad?.touched}"
                    
+                    type="text" class="form-control" id="nacionalidad" name="nacionalidad" [(value)]="form.value.nacionalidad" required>
+                    <div *ngIf="Nacionalidad?.errors && Nacionalidad?.touched">
+                        <p *ngIf="Nacionalidad?.hasError('required')" class="text-danger">
+                            la nacionalidad es requerida
+                        </p>
+                    </div>
+
+
                     <label for="domicilio">Domicilio</label>
-                    <input type="text" class="form-control" id="domicilio" name="domicilio" [(ngModel)]="persona.domicilio" required>
-                    
+                    <input 
+                    formControlName="domicilio"
+                    [ngClass]="{'is-invalid': Domicilio?.errors && Domicilio?.touched, 'is-valid': !Domicilio?.errors && Nacionalidad?.touched}"
+                   
+                    type="text" class="form-control" id="domicilio" name="domicilio" [(value)]="form.value.domicilio" required>
+                    <div *ngIf="Domicilio?.errors && Domicilio?.touched">
+                        <p *ngIf="Domicilio?.hasError('required')" class="text-danger">
+                            el domicilio es requerido
+                        </p>
+                    </div>
+
                     <label for="nacimiento">Nacimiento</label>
-                    <input type="text" class="form-control" id="nacimiento" name="nacimiento" [(ngModel)]="persona.nacimiento" required>
-                      
+                    <input 
+                    formControlName="nacimiento"
+                    [ngClass]="{'is-invalid': Nacimiento?.errors && Nacimiento?.touched, 'is-valid': !Nacimiento?.errors && Nacionalidad?.touched}"
+                   
+                    type="text" class="form-control" id="nacimiento" name="nacimiento" [(value)]="form.value.nacimiento" required>
+                    <div *ngIf="Nacimiento?.errors && Nacimiento?.touched">
+                        <p *ngIf="Nacimiento?.hasError('required')" class="text-danger">
+                            la fecha de nacimiento es requerida
+                        </p>
+                    </div>
 
                     
                 </div>
