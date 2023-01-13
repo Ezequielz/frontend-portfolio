@@ -3,19 +3,45 @@
         <h1 class="title-project">Actualizar Experiencia</h1>
 
         <div class="row project-box">
-            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm" class="col-12 col-sm-8 col-lg-5">
+            <form [formGroup]="form" (ngSubmit)="onUpdate($event)" novalidate #f="ngForm" class="col-12 col-sm-8 col-lg-5">
 
 
                 <div class="form-group">
     
                     <label for="fecha">Fecha</label>
-                    <input type="text" class="form-control" id="fecha" name="fecha" [(ngModel)]="experiencia.fecha" required>
+                    <input 
+                    formControlName="fecha"
+                    [ngClass]="{'is-invalid': Fecha?.errors && Fecha?.touched, 'is-valid': !Fecha?.errors && Fecha?.touched}"
+                   
+                    type="text" class="form-control" id="fecha" name="fecha" [(value)]="form.value.fecha" required>
+                    <div *ngIf="Fecha?.errors && Fecha?.touched">
+                        <p *ngIf="Fecha?.hasError('required')" class="text-danger">
+                            la fecha es requerida
+                        </p>
+                    </div>
                     
                     <label for="title">Titulo</label>
-                    <input type="text" class="form-control" id="title" name="title" [(ngModel)]="experiencia.title" required>
+                    <input 
+                    formControlName="title"
+                    [ngClass]="{'is-invalid': Title?.errors && Title?.touched, 'is-valid': !Title?.errors && Title?.touched}"
+                    
+                    type="text" class="form-control" id="title" name="title" [(value)]="form.value.title"  required>
+                    <div *ngIf="Title?.errors && Title?.touched">
+                        <p *ngIf="Title?.hasError('required')" class="text-danger">
+                            titulo requerido
+                        </p>
+                    </div>
 
                     <label for="info">Información</label>
-                    <input type="text" class="form-control" id="info" name="info" [(ngModel)]="experiencia.info" required>
+                    <input 
+                    formControlName="info"
+                    [ngClass]="{'is-invalid': Info?.errors && Info?.touched, 'is-valid': !Info?.errors && Info?.touched}"
+                    type="text" class="form-control" id="info" name="info" [(value)]="form.value.info" required>
+                    <div *ngIf="Info?.errors && Info?.touched">
+                        <p *ngIf="Info?.hasError('required')" class="text-danger">
+                            info requerido
+                        </p>
+                    </div>
                     
                  
                     
