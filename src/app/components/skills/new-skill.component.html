@@ -3,7 +3,7 @@
         <h1 class="title-skill">Agregar Skill</h1>
 
         <div class="row skill-box">
-            <form (ngSubmit)="onCreate()" novalidate #f="ngForm" class="col-12 col-sm-8 col-lg-5">
+            <form [formGroup]="form" (ngSubmit)="onCreate($event)" novalidate #f="ngForm" class="col-12 col-sm-8 col-lg-5">
     
                 <div class="imagen" *ngIf="imgService.url">
                     <img [src]="imgService.url" alt="" width="200px">
@@ -18,11 +18,28 @@
                 </div>
                 <div class="form-group">
                     <label for="nombre">Nombre skill</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nombre"  required>
+                    <input 
+                    formControlName="nombre"
+                    [ngClass]="{'is-invalid': Nombre?.errors && Nombre?.touched, 'is-valid': !Nombre?.errors && Nombre?.touched}"
+                    
+                    type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="nombre"  required>
+                    <div *ngIf="Nombre?.errors && Nombre?.touched">
+                        <p *ngIf="Nombre?.hasError('required')" class="text-danger">
+                            el nombre de la skill es requerido
+                        </p>
+                    </div>
 
                     <label for="porcentaje">Porcentaje</label>
-                    <input type="text" class="form-control" id="porcentaje" name="porcentaje"  [(ngModel)]="porcentaje" required>
-                   
+                    <input 
+                    formControlName="porcentaje"
+                    [ngClass]="{'is-invalid': Porcentaje?.errors && Porcentaje?.touched, 'is-valid': !Porcentaje?.errors && Porcentaje?.touched}"
+                    
+                    type="number" class="form-control" id="porcentaje" name="porcentaje"  [(ngModel)]="porcentaje" required>
+                    <div *ngIf="Porcentaje?.errors && Porcentaje?.touched">
+                        <p *ngIf="Porcentaje?.hasError('required')" class="text-danger">
+                            el porcentaje es requerido
+                        </p>
+                    </div>
 
                     <label for="img">imagen</label>
                     <input 
@@ -33,7 +50,15 @@
                         id="img" name="img" 
                         [(ngModel)]="img"
                         required
+                        formControlName="img"
+                        [ngClass]="{'is-invalid': Img?.errors && Img?.touched, 'is-valid': !Img?.errors && Img?.touched}"
+                        
                     >
+                    <div *ngIf="Img?.errors && Img?.touched">
+                        <p *ngIf="Img?.hasError('required')" class="text-danger">
+                            la imagen requerida
+                        </p>
+                    </div>
 
                 </div>
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Skill } from 'src/app/model/skill';
 import { SkillService } from '../../services/skill.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,11 +15,13 @@ export class EditSkillComponent implements OnInit {
 
   skill: Skill = null;
   saveImage: boolean = false;
+  form:FormGroup;
 
   constructor( private skillService: SkillService,
      private activatedRoute: ActivatedRoute,
      private router: Router,
-     public imgService: ImageService
+     public imgService: ImageService,
+     private formBuilder: FormBuilder 
      ) { }
 
   ngOnInit(): void {
@@ -26,50 +29,82 @@ export class EditSkillComponent implements OnInit {
     this.imgService.cleanUrl();
     this.skillService.detail( id ).subscribe( data => {
       this.skill = data;
+      this.form = this.formBuilder.group({
+        nombre:[data.nombre,[Validators.required]],
+        img:[data.img,[Validators.required]],
+        porcentaje:[data.porcentaje,[Validators.required]]
+
+      })
     }, err =>{
-      alert('Error al modificar el skill');
+      Swal.fire({
+        title: 'error al modificar skill',
+        icon:'error',
+        showConfirmButton: false,
+      })
       this.router.navigate(['']);
     });
   }
 
-  onUpdate(){
+  get Nombre(){
+    return this.form.get('nombre')
+  }
+  get Img(){
+    return this.form.get('img')
+  }
+  get Porcentaje(){
+    return this.form.get('porcentaje')
+  }
 
-    Swal.fire({
-      title: 'Editando Skill',
-      text: 'Espere...',
-      showConfirmButton: false,
-    })
 
+  onUpdate(event: Event){
+    event.preventDefault()
 
-    const id = this.activatedRoute.snapshot.params['id'];
+    if(this.form.value.nombre && this.form.value.img && this.form.value.porcentaje){
 
-
-    if (this.imgService.url){
-
-      this.skill.img = this.imgService.url
+      Swal.fire({
+        title: 'Editando Skill',
+        text: 'Espere...',
+        showConfirmButton: false,
+      })
+  
+  
+      const id = this.activatedRoute.snapshot.params['id'];
+  
+  
+      if (this.imgService.url){
+  
+        this.form.value.img = this.imgService.url
+      }
+  
+  
+  
+      this.skillService.update(id, this.form.value).subscribe( data => {
+  
+        Swal.fire({
+          icon: 'success',
+          title: 'Skill Editado',
+          timer: 1500,
+          showConfirmButton: false
+        })
+        this.router.navigate(['']);
+  
+      }, err =>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Error al modificar skill',
+          timer: 1500,
+          showConfirmButton: false
+        })
+        this.router.navigate(['']);
+      });
+    }else{
+      Swal.fire({
+        title: 'Debe completar todos los campos',
+        icon:'error',
+        timer:1500,
+        showConfirmButton: false,
+      })
     }
-
-
-
-    this.skillService.update(id, this.skill).subscribe( data => {
-
-      Swal.fire({
-        icon: 'success',
-        title: 'Skill Editado',
-        timer: 1500,
-        showConfirmButton: false
-      })
-      this.router.navigate(['']);
-
-    }, err =>{
-      Swal.fire({
-        icon: 'error',
-        title: 'Error al modificar skill',
-        timer: 1500,
-        showConfirmButton: false
-      })
-      this.router.navigate(['']);
-    });
   }
 
   uploadImage($event : any){
