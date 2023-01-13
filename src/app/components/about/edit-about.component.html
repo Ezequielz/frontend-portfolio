@@ -3,18 +3,36 @@
         <h1 class="title-project">Actualizar About</h1>
 
         <div class="row project-box">
-            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm" class="col-12 col-sm-8 col-lg-5">
+            <form [formGroup]="form" (ngSubmit)="onUpdate($event)" novalidate #f="ngForm" class="col-12 col-sm-8 col-lg-5">
 
                 <div class="form-group">
     
                     <label for="title">Titulo</label>
                     <!-- <input type="text" class="form-control" id="title" name="title" [(ngModel)]="about.title" required> -->
-                    <textarea id="title" name="title" [(ngModel)]="about.title" required
+                    <textarea 
+                    formControlName="title"
+                    [ngClass]="{'is-invalid': Title?.errors && Title?.touched, 'is-valid': !Title?.errors && Title?.touched}"      
+                    id="title" name="title" [(value)]="form.value.title" required
                     cols="30" rows="5"></textarea>
+                    <div *ngIf="Title?.errors && Title?.touched">
+                        <p *ngIf="Title?.hasError('required')" class="text-danger">
+                            el titulo es requerido
+                        </p>
+                    </div>
+
                     <label for="info">Informacion</label>
                     <!-- <input type="text" class="form-control" id="info" name="info" [(ngModel)]="about.info" required> -->
-                    <textarea id="info" name="info" [(ngModel)]="about.info" required
+                    <textarea 
+                    formControlName="info"
+                    [ngClass]="{'is-invalid': Info?.errors && Info?.touched, 'is-valid': !Info?.errors && Info?.touched}"      
+                    
+                    id="info" name="info" [(value)]="form.value.info" required
                     cols="30" rows="10"></textarea>
+                    <div *ngIf="Info?.errors && Info?.touched">
+                        <p *ngIf="Info?.hasError('required')" class="text-danger">
+                            la informacion es requerida
+                        </p>
+                    </div>
                 </div>
 
                 <div class="buttons-container">
