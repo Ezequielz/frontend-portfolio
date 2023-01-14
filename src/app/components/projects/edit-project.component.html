@@ -3,7 +3,7 @@
         <h1 class="title-project">Actualizar Proyecto</h1>
 
         <div class="row project-box">
-            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm" class="col-12 col-sm-8 col-lg-5">
+            <form [formGroup]="form" (ngSubmit)="onUpdate($event)" novalidate #f="ngForm" class="col-12 col-sm-8 col-lg-5">
                 
                 <div class="imagen" *ngIf="!imgService.url">
                     <img [src]="project.img" alt="" width="200px">
@@ -16,15 +16,32 @@
 
                 <div class="form-group">
                     <label for="title">Titulo del proyecto</label>
-                    <input type="text" class="form-control" id="title" name="title" [(ngModel)]="project.title" required>
+                    <input 
+                    formControlName="title"
+                    [ngClass]="{'is-invalid': Title?.errors && Title?.touched, 'is-valid': !Title?.errors && Title?.touched}"
                    
+                    type="text" class="form-control" id="title" name="title" [(value)]="form.value.title" required>
+                    <div *ngIf="Title?.errors && Title?.touched">
+                        <p *ngIf="Title?.hasError('required')" class="text-danger">
+                            el titulo del proyecto es requerido
+                        </p>
+                    </div>
+
                     <div class="mt-2">
 
                         <textarea 
                             name="" id="" cols="30" rows="10"
                             placeholder="Descripcion"
-                            id="descripcion" name="descripcion" [(ngModel)]="project.descripcion" required
+                            formControlName="descripcion"
+                            [ngClass]="{'is-invalid': Descripcion?.errors && Descripcion?.touched, 'is-valid': !Descripcion?.errors && Descripcion?.touched}"
+                          
+                            id="descripcion" name="descripcion" [(value)]="form.value.descripcion" required
                         ></textarea>
+                        <div *ngIf="Descripcion?.errors && Descripcion?.touched">
+                            <p *ngIf="Descripcion?.hasError('required')" class="text-danger">
+                                la descripcion es requerida
+                            </p>
+                        </div>
                     </div>
 
                     <label for="img">imagen</label>
@@ -34,16 +51,40 @@
                         type="file" 
                         class="form-control" 
                         id="img" name="img" 
-                        [(ngModel)]="project.img" 
+                        [(value)]="form.value.img"
                         required
+                        formControlName="img"
+                        [ngClass]="{'is-invalid': Img?.errors && Img?.touched, 'is-valid': !Img?.errors && Img?.touched}"
+                     
                     >
+                    <div *ngIf="Img?.errors && Img?.touched">
+                        <p *ngIf="Img?.hasError('required')" class="text-danger">
+                            la imagen es requerida
+                        </p>
+                    </div>
     
                     <label for="giturl">Link GitHub</label>
-                    <input type="text" class="form-control" id="giturl" name="giturl" [(ngModel)]="project.giturl" required>
-                    
+                    <input 
+                    formControlName="giturl"
+                    [ngClass]="{'is-invalid': Giturl?.errors && Giturl?.touched, 'is-valid': !Giturl?.errors && Giturl?.touched}"
+                 
+                    type="text" class="form-control" id="giturl" name="giturl" [(value)]="form.value.giturl" required>
+                    <div *ngIf="Giturl?.errors && Giturl?.touched">
+                        <p *ngIf="Giturl?.hasError('required')" class="text-danger">
+                            el link de GitHub es requerido
+                        </p>
+                    </div>
+
                     <label for="weburl">Link web</label>
-                    <input type="text" class="form-control" id="weburl" name="weburl" [(ngModel)]="project.weburl" required>
-                   
+                    <input 
+                    formControlName="weburl"
+                    [ngClass]="{'is-invalid': Weburl?.errors && Weburl?.touched, 'is-valid': !Weburl?.errors && Weburl?.touched}"
+                    type="text" class="form-control" id="weburl" name="weburl" [(value)]="form.value.weburl" required>
+                    <div *ngIf="Weburl?.errors && Weburl?.touched">
+                        <p *ngIf="Weburl?.hasError('required')" class="text-danger">
+                            el link de la web es requerido
+                        </p>
+                    </div>
                     
                 </div>
 

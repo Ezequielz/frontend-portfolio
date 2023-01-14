@@ -22,7 +22,7 @@
                     formControlName="nombre"
                     [ngClass]="{'is-invalid': Nombre?.errors && Nombre?.touched, 'is-valid': !Nombre?.errors && Nombre?.touched}"
                    
-                    type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="skill.nombre"  required="">
+                    type="text" class="form-control" id="nombre" name="nombre" [(value)]="form.value.nombre"  required="">
                     <div *ngIf="Nombre?.errors && Nombre?.touched">
                         <p *ngIf="Nombre?.hasError('required')" class="text-danger">
                             el nombre es requerido
@@ -34,7 +34,7 @@
                     formControlName="porcentaje"
                     [ngClass]="{'is-invalid': Porcentaje?.errors && Porcentaje?.touched, 'is-valid': !Porcentaje?.errors && Porcentaje?.touched}"
                     
-                    type="number" class="form-control" id="porcentaje" name="porcentaje"  [(ngModel)]="skill.porcentaje" required="">
+                    type="number" class="form-control" id="porcentaje" name="porcentaje"  [(value)]="form.value.porcentaje" required="">
                     <div *ngIf="Porcentaje?.errors && Porcentaje?.touched">
                         <p *ngIf="Porcentaje?.hasError('required')" class="text-danger">
                            el porcentaje es requerido
