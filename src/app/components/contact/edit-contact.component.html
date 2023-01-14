@@ -3,12 +3,24 @@
         <h1 class="title-project">Actualizar Contacto</h1>
 
         <div class="row project-box">
-            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm" class="col-12 col-sm-8 col-lg-5">
+            <form [formGroup]="form" (ngSubmit)="onUpdate($event)" novalidate #f="ngForm" class="col-12 col-sm-8 col-lg-5">
                 
 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" [(ngModel)]="contact.email" required>
+                    <input 
+                    formControlName="email"
+                    [ngClass]="{'is-invalid': Email?.errors && Email?.touched, 'is-valid': !Email?.errors && Email?.touched}"
+                   
+                    type="email" class="form-control" id="email" name="email" [(value)]="form.value.email" required>
+                    <div *ngIf="Email?.errors && Email?.touched">
+                        <p *ngIf="Email?.hasError('required')" class="text-danger">
+                            el email es requerido
+                        </p>
+                        <p *ngIf="Email?.hasError('email')" class="text-danger">
+                           el email no parece tener un formato válido
+                        </p>
+                    </div>
                    
                     <label for="img">Curriculum Vitae (solo .pdf)</label>
                     <input 
@@ -17,22 +29,63 @@
                         type="file" 
                         class="form-control" 
                         id="cv" name="cv" 
-                        [(ngModel)]="contact.cv" 
+                        [(value)]="form.value.img"
+                        formControlName="cv"
+                        [ngClass]="{'is-invalid': Cv?.errors && Cv?.touched, 'is-valid': !Cv?.errors && Cv?.touched}"
+                     
                         
                     >
+                    <div *ngIf="Cv?.errors && Cv?.touched">
+                        <p *ngIf="Cv?.hasError('required')" class="text-danger">
+                           el curriculum es requerido
+                        </p>
+                    </div>
     
                     <label for="city">Ciudad en el mapa</label>
-                    <input type="text" class="form-control" id="city" name="city" [(ngModel)]="contact.city" required>
-                    
+                    <input 
+                    formControlName="city"
+                    [ngClass]="{'is-invalid': City?.errors && City?.touched, 'is-valid': !City?.errors && City?.touched}"
+                 
+                    type="text" class="form-control" id="city" name="city" [(value)]="form.value.city" required>
+                    <div *ngIf="City?.errors && City?.touched">
+                        <p *ngIf="City?.hasError('required')" class="text-danger">
+                           la ciudad es obligatoria
+                        </p>
+                    </div>
+
                     <label for="github">Perfil de GitHub</label>
-                    <input type="text" class="form-control" id="github" name="github" [(ngModel)]="contact.github" required>
-                   
+                    <input 
+                    formControlName="github"
+                    [ngClass]="{'is-invalid': Github?.errors && Github?.touched, 'is-valid': !Github?.errors && Github?.touched}"
+                 
+                    type="text" class="form-control" id="github" name="github" [(value)]="form.value.github" required>
+                    <div *ngIf="Github?.errors && Github?.touched">
+                        <p *ngIf="Github?.hasError('required')" class="text-danger">
+                          el link GitHub es obligatorio
+                        </p>
+                    </div>
+
                     <label for="linkedin">Perfil de linkedin</label>
-                    <input type="text" class="form-control" id="linkedin" name="linkedin" [(ngModel)]="contact.linkedin" required>
-                   
+                    <input 
+                    formControlName="linkedin"
+                    [ngClass]="{'is-invalid': Linkedin?.errors && Linkedin?.touched, 'is-valid': !Linkedin?.errors && Linkedin?.touched}"
+                    type="text" class="form-control" id="linkedin" name="linkedin" [(value)]="form.value.linkedin" required>
+                    <div *ngIf="Linkedin?.errors && Linkedin?.touched">
+                        <p *ngIf="Linkedin?.hasError('required')" class="text-danger">
+                          el link Linkedin es obligatorio
+                        </p>
+                    </div>
+
                     <label for="tel">WhatsApp</label>
-                    <input type="text" class="form-control" id="tel" name="tel" [(ngModel)]="contact.tel" required>
-                   
+                    <input 
+                    formControlName="tel"
+                    [ngClass]="{'is-invalid': Tel?.errors && Tel?.touched, 'is-valid': !Tel?.errors && Tel?.touched}"
+                    type="text" class="form-control" id="tel" name="tel" [(value)]="form.value.tel" required>
+                    <div *ngIf="Tel?.errors && Tel?.touched">
+                        <p *ngIf="Tel?.hasError('required')" class="text-danger">
+                          el numero de telefono es obligatorio
+                        </p>
+                    </div>
                     
                 </div>
 
